@@ -4,7 +4,9 @@ export default {
 	title: "UI/CopyInput",
 };
 
-export const Default = () => <CopyInput placeholder="Enter text..." type="text" defaultValue="Copy Me" />;
+export const Default = () => <CopyInput placeholder="Enter text..." type="text" />;
+
+export const DefaultValue = () => <CopyInput placeholder="Enter text..." type="text" defaultValue="Copy Me" />;
 
 export const Disabled = () => <CopyInput placeholder="Disabled input" disabled={true} />;
 

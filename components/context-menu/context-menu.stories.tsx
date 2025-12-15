@@ -1,3 +1,5 @@
+import { IconArrowLeft, IconArrowRight, IconDeviceFloppy, IconPrinter, IconRefresh } from "@tabler/icons-react";
+
 import ContextMenu from "./ContextMenu";
 import ContextMenuCheckboxItem from "./ContextMenuCheckboxItem";
 import ContextMenuContent from "./ContextMenuContent";
@@ -24,6 +26,39 @@ export const Default = () => (
 			<ContextMenuSeparator />
 			<ContextMenuItem>Save Page As...</ContextMenuItem>
 			<ContextMenuItem>Print...</ContextMenuItem>
+		</ContextMenuContent>
+	</ContextMenu>
+);
+
+export const Icons = () => (
+	<ContextMenu>
+		<ContextMenuTrigger>
+			<div className="flex h-48 w-96 items-center justify-center rounded-md border border-dashed text-sm">
+				Right click here
+			</div>
+		</ContextMenuTrigger>
+		<ContextMenuContent>
+			<ContextMenuItem>
+				<IconArrowLeft />
+				Back
+			</ContextMenuItem>
+			<ContextMenuItem>
+				<IconArrowRight />
+				Forward
+			</ContextMenuItem>
+			<ContextMenuItem>
+				<IconRefresh />
+				Reload
+			</ContextMenuItem>
+			<ContextMenuSeparator />
+			<ContextMenuItem>
+				<IconDeviceFloppy />
+				Save Page As...
+			</ContextMenuItem>
+			<ContextMenuItem>
+				<IconPrinter />
+				Print...
+			</ContextMenuItem>
 		</ContextMenuContent>
 	</ContextMenu>
 );
