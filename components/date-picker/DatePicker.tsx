@@ -54,12 +54,14 @@ const DatePicker = forwardRef<
 	return (
 		<InputGroup ref={ref} className={cn("w-fit", className)} {...props}>
 			<Popover open={open} onOpenChange={setOpen}>
-				<PopoverTrigger>
-					<InputGroupButton size="sm" variant="none" className="font-normal">
-						{value ? value.toLocaleDateString() : "Select date"}
-						<IconChevronDown />
-					</InputGroupButton>
-				</PopoverTrigger>
+				<PopoverTrigger
+					render={(triggerProps) => (
+						<InputGroupButton {...triggerProps} size="sm" variant="none" className="font-normal">
+							{value ? value.toLocaleDateString() : "Select date"}
+							<IconChevronDown />
+						</InputGroupButton>
+					)}
+				/>
 				<PopoverContent className="w-auto overflow-hidden p-0" align="start">
 					<Calendar mode="single" selected={value} captionLayout="dropdown" onSelect={handleDateSelect} />
 				</PopoverContent>
