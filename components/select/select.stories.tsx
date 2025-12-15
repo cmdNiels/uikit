@@ -1,5 +1,6 @@
 import Select from "./Select";
 import SelectContent from "./SelectContent";
+import SelectGroup from "./SelectGroup";
 import SelectItem from "./SelectItem";
 import SelectTrigger from "./SelectTrigger";
 import SelectValue from "./SelectValue";
@@ -14,11 +15,13 @@ export const Default = () => (
 			<SelectValue />
 		</SelectTrigger>
 		<SelectContent>
-			<SelectItem value="apple">Apple</SelectItem>
-			<SelectItem value="banana">Banana</SelectItem>
-			<SelectItem value="cherry">Cherry</SelectItem>
-			<SelectItem value="grape">Grape</SelectItem>
-			<SelectItem value="orange">Orange</SelectItem>
+			<SelectGroup>
+				<SelectItem value="apple">Apple</SelectItem>
+				<SelectItem value="banana">Banana</SelectItem>
+				<SelectItem value="cherry">Cherry</SelectItem>
+				<SelectItem value="grape">Grape</SelectItem>
+				<SelectItem value="orange">Orange</SelectItem>
+			</SelectGroup>
 		</SelectContent>
 	</Select>
 );
@@ -29,9 +32,11 @@ export const Small = () => (
 			<SelectValue />
 		</SelectTrigger>
 		<SelectContent>
-			<SelectItem value="apple">Apple</SelectItem>
-			<SelectItem value="banana">Banana</SelectItem>
-			<SelectItem value="cherry">Cherry</SelectItem>
+			<SelectGroup>
+				<SelectItem value="apple">Apple</SelectItem>
+				<SelectItem value="banana">Banana</SelectItem>
+				<SelectItem value="cherry">Cherry</SelectItem>
+			</SelectGroup>
 		</SelectContent>
 	</Select>
 );
@@ -42,9 +47,11 @@ export const WithDefaultValue = () => (
 			<SelectValue />
 		</SelectTrigger>
 		<SelectContent>
-			<SelectItem value="apple">Apple</SelectItem>
-			<SelectItem value="banana">Banana</SelectItem>
-			<SelectItem value="cherry">Cherry</SelectItem>
+			<SelectGroup>
+				<SelectItem value="apple">Apple</SelectItem>
+				<SelectItem value="banana">Banana</SelectItem>
+				<SelectItem value="cherry">Cherry</SelectItem>
+			</SelectGroup>
 		</SelectContent>
 	</Select>
 );
@@ -55,8 +62,10 @@ export const Disabled = () => (
 			<SelectValue />
 		</SelectTrigger>
 		<SelectContent>
-			<SelectItem value="apple">Apple</SelectItem>
-			<SelectItem value="banana">Banana</SelectItem>
+			<SelectGroup>
+				<SelectItem value="apple">Apple</SelectItem>
+				<SelectItem value="banana">Banana</SelectItem>
+			</SelectGroup>
 		</SelectContent>
 	</Select>
 );

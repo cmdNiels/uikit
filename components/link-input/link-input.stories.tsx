@@ -6,7 +6,9 @@ export default {
 
 export const Default = () => <LinkInput placeholder="Enter text..." type="text" />;
 
-export const DefaultValue = () => <LinkInput placeholder="Enter text..." type="text" defaultValue="https://example.com" />;
+export const DefaultValue = () => (
+	<LinkInput placeholder="Enter text..." type="text" defaultValue="https://example.com" />
+);
 
 export const Disabled = () => <LinkInput placeholder="Disabled input" disabled={true} />;
 
