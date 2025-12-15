@@ -90,6 +90,9 @@ export { default as ContextMenuSubContent } from "./components/context-menu/Cont
 export { default as ContextMenuSubTrigger } from "./components/context-menu/ContextMenuSubTrigger";
 export { default as ContextMenuTrigger } from "./components/context-menu/ContextMenuTrigger";
 
+// Copy Input
+export { default as CopyInput } from "./components/copy-input/CopyInput";
+
 // Date Picker
 export { default as DatePicker } from "./components/date-picker/DatePicker";
 
@@ -153,6 +156,9 @@ export { default as ItemTitle } from "./components/item/ItemTitle";
 
 // Label
 export { default as Label } from "./components/label/Label";
+
+// Link Input
+export { default as LinkInput } from "./components/link-input/LinkInput";
 
 // Popover
 export { default as Popover } from "./components/popover/Popover";
