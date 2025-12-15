@@ -34,7 +34,14 @@ export default function LinkInput({
 
 	return (
 		<InputGroup>
-			<InputGroupInput ref={inputRef} disabled={disabled} defaultValue={defaultValue} value={value} onChange={handleChange} {...props} />
+			<InputGroupInput
+				ref={inputRef}
+				disabled={disabled}
+				defaultValue={defaultValue}
+				value={value}
+				onChange={handleChange}
+				{...props}
+			/>
 			<InputGroupAddon align="inline-end">
 				<Button
 					variant="link"
