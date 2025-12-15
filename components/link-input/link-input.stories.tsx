@@ -9,5 +9,3 @@ export const Default = () => <LinkInput placeholder="Enter text..." type="text" 
 export const Disabled = () => <LinkInput placeholder="Disabled input" disabled={true} />;
 
 export const WithError = () => <LinkInput placeholder="Invalid input" aria-invalid={true} />;
-
-export const File = () => <LinkInput type="file" />;

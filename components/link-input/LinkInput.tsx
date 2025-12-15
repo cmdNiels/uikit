@@ -17,7 +17,7 @@ export default function LinkInput({
 }: ComponentProps<typeof InputGroupInput>) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const debounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
-	const [hasValidValue, setHasValidValue] = useState<boolean>(false);
+	const [hasValidValue, setHasValidValue] = useState<boolean>(/^https?:\/\/.+/.test(String(value ?? defaultValue)));
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e);
@@ -34,7 +34,7 @@ export default function LinkInput({
 
 	return (
 		<InputGroup>
-			<InputGroupInput ref={inputRef} value={value} onChange={handleChange} {...props} />
+			<InputGroupInput ref={inputRef} disabled={disabled} defaultValue={defaultValue} value={value} onChange={handleChange} {...props} />
 			<InputGroupAddon align="inline-end">
 				<Button
 					variant="link"

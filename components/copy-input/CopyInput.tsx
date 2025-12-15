@@ -16,7 +16,7 @@ export default function CopyInput({
 	...props
 }: ComponentProps<typeof InputGroupInput>) {
 	const inputRef = useRef<HTMLInputElement>(null);
-	const [hasValue, setHasValue] = useState<boolean>(Boolean(value) ?? Boolean(defaultValue));
+	const [hasValue, setHasValue] = useState<boolean>(Boolean(value ?? defaultValue));
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e);
@@ -25,7 +25,7 @@ export default function CopyInput({
 
 	return (
 		<InputGroup>
-			<InputGroupInput ref={inputRef} value={value} onChange={handleChange} {...props} />
+			<InputGroupInput ref={inputRef} disabled={disabled} defaultValue={defaultValue} value={value} onChange={handleChange} {...props} />
 			<InputGroupAddon align="inline-end">
 				<Button
 					variant="link"
