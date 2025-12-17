@@ -168,6 +168,10 @@ export { default as PopoverHeader } from "./components/popover/PopoverHeader";
 export { default as PopoverTitle } from "./components/popover/PopoverTitle";
 export { default as PopoverTrigger } from "./components/popover/PopoverTrigger";
 
+// Scroll Area
+export { default as ScrollArea } from "./components/scroll-area/ScrollArea";
+export { default as ScrollBar } from "./components/scroll-area/ScrollBar";
+
 // Select
 export { default as Select } from "./components/select/Select";
 export { default as SelectContent } from "./components/select/SelectContent";
