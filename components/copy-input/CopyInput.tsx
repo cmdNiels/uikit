@@ -1,7 +1,7 @@
 "use client";
 
 import { IconCopy } from "@tabler/icons-react";
-import { useState, useRef, type ComponentProps } from "react";
+import { useState, useRef, type ComponentProps, Children, isValidElement } from "react";
 
 import Button from "@/components/button/Button";
 import InputGroup from "@/components/input-group/InputGroup";
@@ -13,6 +13,7 @@ export default function CopyInput({
 	defaultValue,
 	value,
 	onChange,
+	children,
 	...props
 }: ComponentProps<typeof InputGroupInput>) {
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -21,6 +22,24 @@ export default function CopyInput({
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e);
 		setHasValue(Boolean(e.target.value));
+	};
+
+	const handleCopy = () => {
+		const inputValue = inputRef.current?.value ?? "";
+
+		const text = Children.map(children, (child: React.ReactNode) => {
+			if (isValidElement<{ children?: React.ReactNode }>(child) && child.props.children) {
+				const inputGroupText = child.props.children as React.ReactElement;
+				if (isValidElement<{ children?: React.ReactNode }>(inputGroupText) && inputGroupText.props.children) {
+					const innerText = inputGroupText.props.children;
+					if (typeof innerText === "string" || typeof innerText === "number") {
+						return innerText;
+					}
+				}
+			}
+		})?.[0] ?? "";
+
+		navigator.clipboard.writeText(text + inputValue);
 	};
 
 	return (
@@ -38,13 +57,12 @@ export default function CopyInput({
 					variant="link"
 					className="h-8 px-2"
 					disabled={disabled ?? !hasValue}
-					onClick={() => {
-						navigator.clipboard.writeText(inputRef.current?.value ?? "");
-					}}
+					onClick={handleCopy}
 				>
 					<IconCopy className="size-4" />
 				</Button>
 			</InputGroupAddon>
+			{children}
 		</InputGroup>
 	);
 }

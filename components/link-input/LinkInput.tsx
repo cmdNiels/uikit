@@ -1,7 +1,7 @@
 "use client";
 
 import { IconExternalLink } from "@tabler/icons-react";
-import { useState, useRef, type ComponentProps } from "react";
+import { useState, useRef, type ComponentProps, isValidElement, Children } from "react";
 
 import Button from "@/components/button/Button";
 import InputGroup from "@/components/input-group/InputGroup";
@@ -13,6 +13,7 @@ export default function LinkInput({
 	defaultValue,
 	value,
 	onChange,
+	children,
 	...props
 }: ComponentProps<typeof InputGroupInput>) {
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -32,6 +33,24 @@ export default function LinkInput({
 		}, 300);
 	};
 
+	const handleCopy = () => {
+		const inputValue = inputRef.current?.value ?? "";
+
+		const text = Children.map(children, (child: React.ReactNode) => {
+			if (isValidElement<{ children?: React.ReactNode }>(child) && child.props.children) {
+				const inputGroupText = child.props.children as React.ReactElement;
+				if (isValidElement<{ children?: React.ReactNode }>(inputGroupText) && inputGroupText.props.children) {
+					const innerText = inputGroupText.props.children;
+					if (typeof innerText === "string" || typeof innerText === "number") {
+						return innerText;
+					}
+				}
+			}
+		})?.[0] ?? "";
+
+		window.open(text + inputValue, "_blank", "noopener,noreferrer");
+	}
+
 	return (
 		<InputGroup>
 			<InputGroupInput
@@ -47,15 +66,12 @@ export default function LinkInput({
 					variant="link"
 					className="h-8 px-2"
 					disabled={disabled ?? !hasValidValue}
-					onClick={() => {
-						if (inputRef.current?.value) {
-							window.open(inputRef.current?.value, "_blank", "noopener,noreferrer");
-						}
-					}}
+					onClick={handleCopy}
 				>
 					<IconExternalLink className="size-4" />
 				</Button>
 			</InputGroupAddon>
+			{children}
 		</InputGroup>
 	);
 }
