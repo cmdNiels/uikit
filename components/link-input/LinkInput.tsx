@@ -20,6 +20,19 @@ export default function LinkInput({
 	const debounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
 	const [hasValidValue, setHasValidValue] = useState<boolean>(/^https?:\/\/.+/.test(String(value ?? defaultValue)));
 
+	const innerText =
+		Children.map(children, (child: React.ReactNode) => {
+			if (isValidElement<{ children?: React.ReactNode }>(child) && child.props.children) {
+				const inputGroupText = child.props.children as React.ReactElement;
+				if (isValidElement<{ children?: React.ReactNode }>(inputGroupText) && inputGroupText.props.children) {
+					const inputGroupTextInnerText = inputGroupText.props.children;
+					if (typeof inputGroupTextInnerText === "string" || typeof inputGroupTextInnerText === "number") {
+						return inputGroupTextInnerText;
+					}
+				}
+			}
+		})?.[0] ?? "";
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e);
 
@@ -29,27 +42,15 @@ export default function LinkInput({
 
 		clearTimeout(debounceRef.current);
 		debounceRef.current = setTimeout(() => {
-			setHasValidValue(/^https?:\/\/.+/.test(e.target.value));
+			setHasValidValue(/^https?:\/\/.+/.test(innerText + e.target.value));
 		}, 300);
 	};
 
-	const handleCopy = () => {
+	const handleOpen = () => {
 		const inputValue = inputRef.current?.value ?? "";
 
-		const text = Children.map(children, (child: React.ReactNode) => {
-			if (isValidElement<{ children?: React.ReactNode }>(child) && child.props.children) {
-				const inputGroupText = child.props.children as React.ReactElement;
-				if (isValidElement<{ children?: React.ReactNode }>(inputGroupText) && inputGroupText.props.children) {
-					const innerText = inputGroupText.props.children;
-					if (typeof innerText === "string" || typeof innerText === "number") {
-						return innerText;
-					}
-				}
-			}
-		})?.[0] ?? "";
-
-		window.open(text + inputValue, "_blank", "noopener,noreferrer");
-	}
+		window.open(innerText + inputValue, "_blank", "noopener,noreferrer");
+	};
 
 	return (
 		<InputGroup>
@@ -62,12 +63,7 @@ export default function LinkInput({
 				{...props}
 			/>
 			<InputGroupAddon align="inline-end">
-				<Button
-					variant="link"
-					className="h-8 px-2"
-					disabled={disabled ?? !hasValidValue}
-					onClick={handleCopy}
-				>
+				<Button variant="link" className="h-8 px-2" disabled={disabled ?? !hasValidValue} onClick={handleOpen}>
 					<IconExternalLink className="size-4" />
 				</Button>
 			</InputGroupAddon>

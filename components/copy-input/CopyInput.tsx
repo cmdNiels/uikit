@@ -27,17 +27,21 @@ export default function CopyInput({
 	const handleCopy = () => {
 		const inputValue = inputRef.current?.value ?? "";
 
-		const text = Children.map(children, (child: React.ReactNode) => {
-			if (isValidElement<{ children?: React.ReactNode }>(child) && child.props.children) {
-				const inputGroupText = child.props.children as React.ReactElement;
-				if (isValidElement<{ children?: React.ReactNode }>(inputGroupText) && inputGroupText.props.children) {
-					const innerText = inputGroupText.props.children;
-					if (typeof innerText === "string" || typeof innerText === "number") {
-						return innerText;
+		const text =
+			Children.map(children, (child: React.ReactNode) => {
+				if (isValidElement<{ children?: React.ReactNode }>(child) && child.props.children) {
+					const inputGroupText = child.props.children as React.ReactElement;
+					if (
+						isValidElement<{ children?: React.ReactNode }>(inputGroupText) &&
+						inputGroupText.props.children
+					) {
+						const innerText = inputGroupText.props.children;
+						if (typeof innerText === "string" || typeof innerText === "number") {
+							return innerText;
+						}
 					}
 				}
-			}
-		})?.[0] ?? "";
+			})?.[0] ?? "";
 
 		navigator.clipboard.writeText(text + inputValue);
 	};
@@ -53,12 +57,7 @@ export default function CopyInput({
 				{...props}
 			/>
 			<InputGroupAddon align="inline-end">
-				<Button
-					variant="link"
-					className="h-8 px-2"
-					disabled={disabled ?? !hasValue}
-					onClick={handleCopy}
-				>
+				<Button variant="link" className="h-8 px-2" disabled={disabled ?? !hasValue} onClick={handleCopy}>
 					<IconCopy className="size-4" />
 				</Button>
 			</InputGroupAddon>
