@@ -18,7 +18,6 @@ export default function LinkInput({
 }: ComponentProps<typeof InputGroupInput>) {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const debounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
-	const [hasValidValue, setHasValidValue] = useState<boolean>(/^https?:\/\/.+/.test(String(value ?? defaultValue)));
 
 	const innerText =
 		Children.map(children, (child: React.ReactNode) => {
@@ -27,11 +26,15 @@ export default function LinkInput({
 				if (isValidElement<{ children?: React.ReactNode }>(inputGroupText) && inputGroupText.props.children) {
 					const inputGroupTextInnerText = inputGroupText.props.children;
 					if (typeof inputGroupTextInnerText === "string" || typeof inputGroupTextInnerText === "number") {
-						return inputGroupTextInnerText;
+						return inputGroupTextInnerText as string;
 					}
 				}
 			}
 		})?.[0] ?? "";
+
+	const [hasValidValue, setHasValidValue] = useState<boolean>(
+		/^https:\/\/[^\/]*\.[^\/]+/.test(String(innerText + (value ?? defaultValue)))
+	);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e);
@@ -42,7 +45,7 @@ export default function LinkInput({
 
 		clearTimeout(debounceRef.current);
 		debounceRef.current = setTimeout(() => {
-			setHasValidValue(/^https?:\/\/.+/.test(innerText + e.target.value));
+			setHasValidValue(/^https:\/\/[^\/]*\.[^\/]+/.test(innerText + e.target.value));
 		}, 300);
 	};
 
