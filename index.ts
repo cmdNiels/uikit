@@ -196,6 +196,9 @@ export { default as Toaster } from "./components/sonner/Toaster";
 // Sortable
 export * from "./components/sortable/Sortable";
 
+// Spinner
+export { default as Spinner } from "./components/spinner/Spinner";
+
 // Switch
 export { default as Switch } from "./components/switch/Switch";
 
