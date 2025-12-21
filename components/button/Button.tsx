@@ -19,12 +19,12 @@ export default function Button({
 	return (
 		<ButtonPrimitive
 			data-slot="button"
-			className={cn(buttonVariants({ variant, size, className }), "relative")}
+			className={cn(buttonVariants({ variant, size, className }), loading && "relative")}
 			disabled={disabled ?? loading}
 			{...props}
 		>
 			{loading && <Spinner className="absolute inset-0 m-auto" />}
-			<span className={cn(loading ? "invisible relative" : "")}>{children}</span>
+			<span className={cn("contents", loading && "invisible")}>{children}</span>
 		</ButtonPrimitive>
 	);
 }
