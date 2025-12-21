@@ -3,7 +3,11 @@
 import { IconGripVertical } from "@tabler/icons-react";
 import { useState } from "react";
 
-import { Sortable, SortableContent, SortableItem, SortableItemHandle, SortableOverlay } from "./Sortable";
+import Sortable from "./Sortable";
+import SortableContent from "./SortableContent";
+import SortableItem from "./SortableItem";
+import SortableItemHandle from "./SortableItemHandle";
+import SortableOverlay from "./SortableOverlay";
 
 export default {
 	title: "UI/Sortable",

@@ -194,7 +194,11 @@ export { default as Skeleton } from "./components/skeleton/Skeleton";
 export { default as Toaster } from "./components/sonner/Toaster";
 
 // Sortable
-export * from "./components/sortable/Sortable";
+export { default as Sortable } from "./components/sortable/Sortable";
+export { default as SortableContent } from "./components/sortable/SortableContent";
+export { default as SortableItem } from "./components/sortable/SortableItem";
+export { default as SortableItemHandle } from "./components/sortable/SortableItemHandle";
+export { default as SortableOverlay } from "./components/sortable/SortableOverlay";
 
 // Spinner
 export { default as Spinner } from "./components/spinner/Spinner";
