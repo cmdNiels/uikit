@@ -1,3 +1,5 @@
+import { IconHome } from "@tabler/icons-react";
+
 import Button from "./Button";
 
 export default {
@@ -5,6 +7,8 @@ export default {
 };
 
 export const Default = () => <Button variant="default">Button</Button>;
+
+export const WithIcon = () => <Button variant="default"><IconHome />Button</Button>;
 
 export const Destructive = () => <Button variant="destructive">Delete</Button>;
 
