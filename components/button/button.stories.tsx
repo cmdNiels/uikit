@@ -20,4 +20,6 @@ export const Small = () => <Button size="sm">Small Button</Button>;
 
 export const Large = () => <Button size="lg">Large Button</Button>;
 
+export const Loading = () => <Button loading>Loading</Button>;
+
 export const Disabled = () => <Button disabled>Disabled</Button>;
