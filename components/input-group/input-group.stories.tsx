@@ -12,47 +12,47 @@ export default {
 };
 
 export const Default = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupInput placeholder="Enter text..." />
 	</InputGroup>
 );
 
 export const WithAddonPrefix = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupAddon>@</InputGroupAddon>
 		<InputGroupInput placeholder="username" />
 	</InputGroup>
 );
 
 export const WithAddonSuffix = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupInput placeholder="amount" />
 		<InputGroupAddon>.00</InputGroupAddon>
 	</InputGroup>
 );
 
 export const WithText = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupText>$</InputGroupText>
 		<InputGroupInput placeholder="0.00" type="number" />
 	</InputGroup>
 );
 
 export const WithButton = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupInput placeholder="Search..." />
 		<InputGroupButton>Search</InputGroupButton>
 	</InputGroup>
 );
 
 export const WithTextarea = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupTextarea placeholder="Enter your message..." rows={4} />
 	</InputGroup>
 );
 
 export const WithIcon = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupAddon align="inline-start">
 			<IconSearch />
 		</InputGroupAddon>
@@ -61,21 +61,21 @@ export const WithIcon = () => (
 );
 
 export const WithInlineEndAddon = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupInput placeholder="Enter URL..." />
 		<InputGroupAddon align="inline-end">.com</InputGroupAddon>
 	</InputGroup>
 );
 
 export const WithBlockStartAddon = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupAddon align="block-start">Label</InputGroupAddon>
 		<InputGroupInput placeholder="Enter value..." />
 	</InputGroup>
 );
 
 export const WithBlockEndAddon = () => (
-	<InputGroup className="w-[300px]">
+	<InputGroup>
 		<InputGroupInput placeholder="Enter value..." />
 		<InputGroupAddon align="block-end">Helper text</InputGroupAddon>
 	</InputGroup>
