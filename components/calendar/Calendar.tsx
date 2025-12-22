@@ -69,7 +69,7 @@ export default function Calendar({
 					"cn-calendar-dropdown-root relative rounded-(--cell-radius)",
 					defaultClassNames.dropdown_root
 				),
-				dropdown: cn("absolute inset-0 bg-popover opacity-0", defaultClassNames.dropdown),
+				dropdown: cn("absolute inset-0 bg-card opacity-0", defaultClassNames.dropdown),
 				caption_label: cn(
 					"font-medium select-none",
 					captionLayout === "label"
