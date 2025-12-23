@@ -1,6 +1,6 @@
 import { experimental_createTheme } from "@clerk/themes";
 
-const clerk = experimental_createTheme({
+const clerk: ReturnType<typeof experimental_createTheme> = experimental_createTheme({
 	name: "uikit",
 	cssLayerName: "components",
 	variables: {
