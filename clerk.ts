@@ -1,7 +1,6 @@
 import { experimental_createTheme } from "@clerk/themes";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const clerkTheme: any = experimental_createTheme({
+const clerk = experimental_createTheme({
 	name: "uikit",
 	cssLayerName: "components",
 	variables: {
@@ -71,3 +70,5 @@ export const clerkTheme: any = experimental_createTheme({
 		pricingTableCardTitle: "text-2xl font-semibold",
 	},
 });
+
+export default clerk;
