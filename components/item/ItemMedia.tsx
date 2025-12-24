@@ -1,4 +1,4 @@
-import * as React from "react";
+import { type ComponentProps } from "react";
 
 import cn from "@/cn";
 
@@ -10,7 +10,7 @@ function ItemMedia({
 	className,
 	variant = "default",
 	...props
-}: React.ComponentProps<"div"> & VariantProps<typeof itemMediaVariants>) {
+}: ComponentProps<"div"> & VariantProps<typeof itemMediaVariants>) {
 	return (
 		<div
 			data-slot="item-media"

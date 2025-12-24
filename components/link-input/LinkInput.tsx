@@ -1,7 +1,7 @@
 "use client";
 
 import { IconExternalLink } from "@tabler/icons-react";
-import { useState, useRef, type ComponentProps, isValidElement, Children } from "react";
+import { useState, useRef, type ComponentProps, isValidElement, Children, type ReactNode, type ChangeEvent, type ReactElement } from "react";
 
 import Button from "@/components/button/Button";
 import InputGroup from "@/components/input-group/InputGroup";
@@ -20,10 +20,10 @@ export default function LinkInput({
 	const debounceRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
 	const innerText =
-		Children.map(children, (child: React.ReactNode) => {
-			if (isValidElement<{ children?: React.ReactNode }>(child) && child.props.children) {
-				const inputGroupText = child.props.children as React.ReactElement;
-				if (isValidElement<{ children?: React.ReactNode }>(inputGroupText) && inputGroupText.props.children) {
+		Children.map(children, (child: ReactNode) => {
+			if (isValidElement<{ children?: ReactNode }>(child) && child.props.children) {
+				const inputGroupText = child.props.children as ReactElement;
+				if (isValidElement<{ children?: ReactNode }>(inputGroupText) && inputGroupText.props.children) {
 					const inputGroupTextInnerText = inputGroupText.props.children;
 					if (typeof inputGroupTextInnerText === "string" || typeof inputGroupTextInnerText === "number") {
 						return inputGroupTextInnerText as string;
@@ -36,7 +36,7 @@ export default function LinkInput({
 		/^https:\/\/[^\/]*\.[^\/]+/.test(String(innerText + (value ?? defaultValue)))
 	);
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e);
 
 		if (!e.target.value) {

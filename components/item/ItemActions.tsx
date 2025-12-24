@@ -1,8 +1,8 @@
-import * as React from "react";
+import { type ComponentProps } from "react";
 
 import cn from "@/cn";
 
-function ItemActions({ className, ...props }: React.ComponentProps<"div">) {
+function ItemActions({ className, ...props }: ComponentProps<"div">) {
 	return <div data-slot="item-actions" className={cn("flex items-center gap-2", className)} {...props} />;
 }
 

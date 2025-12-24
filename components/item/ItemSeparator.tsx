@@ -1,9 +1,9 @@
-import * as React from "react";
+import { type ComponentProps } from "react";
 
 import cn from "@/cn";
 import Separator from "@/components/separator/Separator";
 
-function ItemSeparator({ className, ...props }: React.ComponentProps<typeof Separator>) {
+function ItemSeparator({ className, ...props }: ComponentProps<typeof Separator>) {
 	return (
 		<Separator data-slot="item-separator" orientation="horizontal" className={cn("my-2", className)} {...props} />
 	);

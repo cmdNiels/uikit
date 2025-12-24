@@ -1,7 +1,7 @@
 "use client";
 
 import { IconCopy } from "@tabler/icons-react";
-import { useState, useRef, type ComponentProps, Children, isValidElement } from "react";
+import { useState, useRef, type ComponentProps, Children, isValidElement, type ChangeEvent, type ReactNode, type ReactElement } from "react";
 
 import Button from "@/components/button/Button";
 import InputGroup from "@/components/input-group/InputGroup";
@@ -19,7 +19,7 @@ export default function CopyInput({
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [hasValue, setHasValue] = useState<boolean>(Boolean(value ?? defaultValue));
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e);
 		setHasValue(Boolean(e.target.value));
 	};
@@ -28,11 +28,11 @@ export default function CopyInput({
 		const inputValue = inputRef.current?.value ?? "";
 
 		const text =
-			Children.map(children, (child: React.ReactNode) => {
-				if (isValidElement<{ children?: React.ReactNode }>(child) && child.props.children) {
-					const inputGroupText = child.props.children as React.ReactElement;
+			Children.map(children, (child: ReactNode) => {
+				if (isValidElement<{ children?: ReactNode }>(child) && child.props.children) {
+					const inputGroupText = child.props.children as ReactElement;
 					if (
-						isValidElement<{ children?: React.ReactNode }>(inputGroupText) &&
+						isValidElement<{ children?: ReactNode }>(inputGroupText) &&
 						inputGroupText.props.children
 					) {
 						const innerText = inputGroupText.props.children;

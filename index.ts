@@ -190,6 +190,14 @@ export { default as Separator } from "./components/separator/Separator";
 // Skeleton
 export { default as Skeleton } from "./components/skeleton/Skeleton";
 
+// Sheet
+export { default as Sheet } from "./components/sheet/Sheet";
+export { default as SheetContent } from "./components/sheet/SheetContent";
+export { default as SheetDescription } from "./components/sheet/SheetDescription";
+export { default as SheetHeader } from "./components/sheet/SheetHeader";
+export { default as SheetTitle } from "./components/sheet/SheetTitle";
+export { default as SheetTrigger } from "./components/sheet/SheetTrigger";
+
 // Sonner
 export { default as Toaster } from "./components/sonner/Toaster";
 

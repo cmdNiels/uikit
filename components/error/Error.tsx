@@ -2,6 +2,7 @@
 
 import { IconAlertCircle } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
+import { type HTMLAttributes } from "react";
 
 import cn from "@/cn";
 import Alert from "@/components/alert/Alert";
@@ -14,7 +15,7 @@ export default function Error({
 	message,
 	className,
 	...props
-}: React.HTMLAttributes<HTMLDivElement> & { title: string; message: string }) {
+}: HTMLAttributes<HTMLDivElement> & { title: string; message: string }) {
 	const router = useRouter();
 
 	const handleClick = () => {

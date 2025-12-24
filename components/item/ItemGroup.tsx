@@ -1,8 +1,9 @@
-import * as React from "react";
-
 import cn from "@/cn";
 
-function ItemGroup({ className, ...props }: React.ComponentProps<"div">) {
+import type { ComponentProps } from "react";
+
+
+function ItemGroup({ className, ...props }: ComponentProps<"div">) {
 	return (
 		<div
 			role="list"

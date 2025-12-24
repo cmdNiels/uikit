@@ -1,8 +1,8 @@
-import * as React from "react";
-
 import cn from "@/cn";
 
-function ItemFooter({ className, ...props }: React.ComponentProps<"div">) {
+import type { ComponentProps } from "react";
+
+function ItemFooter({ className, ...props }: ComponentProps<"div">) {
 	return (
 		<div
 			data-slot="item-footer"

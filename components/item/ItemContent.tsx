@@ -1,8 +1,8 @@
-import * as React from "react";
+import { type ComponentProps } from "react";
 
 import cn from "@/cn";
 
-function ItemContent({ className, ...props }: React.ComponentProps<"div">) {
+function ItemContent({ className, ...props }: ComponentProps<"div">) {
 	return (
 		<div
 			data-slot="item-content"

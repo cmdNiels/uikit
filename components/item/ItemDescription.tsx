@@ -1,8 +1,8 @@
-import * as React from "react";
-
 import cn from "@/cn";
 
-function ItemDescription({ className, ...props }: React.ComponentProps<"p">) {
+import type { ComponentProps } from "react";
+
+function ItemDescription({ className, ...props }: ComponentProps<"p">) {
 	return (
 		<p
 			data-slot="item-description"
