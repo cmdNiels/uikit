@@ -2,7 +2,6 @@ import cn from "@/cn";
 
 import type { ComponentProps } from "react";
 
-
 function ItemGroup({ className, ...props }: ComponentProps<"div">) {
 	return (
 		<div

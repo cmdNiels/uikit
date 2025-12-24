@@ -1,7 +1,16 @@
 "use client";
 
 import { IconCopy } from "@tabler/icons-react";
-import { useState, useRef, type ComponentProps, Children, isValidElement, type ChangeEvent, type ReactNode, type ReactElement } from "react";
+import {
+	useState,
+	useRef,
+	type ComponentProps,
+	Children,
+	isValidElement,
+	type ChangeEvent,
+	type ReactNode,
+	type ReactElement,
+} from "react";
 
 import Button from "@/components/button/Button";
 import InputGroup from "@/components/input-group/InputGroup";
@@ -31,10 +40,7 @@ export default function CopyInput({
 			Children.map(children, (child: ReactNode) => {
 				if (isValidElement<{ children?: ReactNode }>(child) && child.props.children) {
 					const inputGroupText = child.props.children as ReactElement;
-					if (
-						isValidElement<{ children?: ReactNode }>(inputGroupText) &&
-						inputGroupText.props.children
-					) {
+					if (isValidElement<{ children?: ReactNode }>(inputGroupText) && inputGroupText.props.children) {
 						const innerText = inputGroupText.props.children;
 						if (typeof innerText === "string" || typeof innerText === "number") {
 							return innerText;

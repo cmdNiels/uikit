@@ -9,30 +9,28 @@ import {
 	IconUser,
 } from "@tabler/icons-react";
 
-import {
-	Sidebar,
-	SidebarContent,
-	SidebarFooter,
-	SidebarGroup,
-	SidebarGroupAction,
-	SidebarGroupContent,
-	SidebarGroupLabel,
-	SidebarHeader,
-	SidebarInput,
-	SidebarInset,
-	SidebarMenu,
-	SidebarMenuAction,
-	SidebarMenuBadge,
-	SidebarMenuButton,
-	SidebarMenuItem,
-	SidebarMenuSub,
-	SidebarMenuSubButton,
-	SidebarMenuSubItem,
-	SidebarProvider,
-	SidebarRail,
-	SidebarSeparator,
-	SidebarTrigger,
-} from "./sidebar";
+import Sidebar from "./Sidebar";
+import SidebarContent from "./SidebarContent";
+import SidebarFooter from "./SidebarFooter";
+import SidebarGroup from "./SidebarGroup";
+import SidebarGroupAction from "./SidebarGroupAction";
+import SidebarGroupContent from "./SidebarGroupContent";
+import SidebarGroupLabel from "./SidebarGroupLabel";
+import SidebarHeader from "./SidebarHeader";
+import SidebarInput from "./SidebarInput";
+import SidebarInset from "./SidebarInset";
+import SidebarMenu from "./SidebarMenu";
+import SidebarMenuAction from "./SidebarMenuAction";
+import SidebarMenuBadge from "./SidebarMenuBadge";
+import SidebarMenuButton from "./SidebarMenuButton";
+import SidebarMenuItem from "./SidebarMenuItem";
+import SidebarMenuSub from "./SidebarMenuSub";
+import SidebarMenuSubButton from "./SidebarMenuSubButton";
+import SidebarMenuSubItem from "./SidebarMenuSubItem";
+import SidebarProvider from "./SidebarProvider";
+import SidebarRail from "./SidebarRail";
+import SidebarSeparator from "./SidebarSeparator";
+import SidebarTrigger from "./SidebarTrigger";
 
 import type { Story } from "@ladle/react";
 

@@ -198,6 +198,31 @@ export { default as SheetHeader } from "./components/sheet/SheetHeader";
 export { default as SheetTitle } from "./components/sheet/SheetTitle";
 export { default as SheetTrigger } from "./components/sheet/SheetTrigger";
 
+// Sidebar
+export { default as Sidebar } from "./components/sidebar/Sidebar";
+export { default as SidebarContent } from "./components/sidebar/SidebarContent";
+export { default as SidebarFooter } from "./components/sidebar/SidebarFooter";
+export { default as SidebarGroup } from "./components/sidebar/SidebarGroup";
+export { default as SidebarGroupAction } from "./components/sidebar/SidebarGroupAction";
+export { default as SidebarGroupContent } from "./components/sidebar/SidebarGroupContent";
+export { default as SidebarGroupLabel } from "./components/sidebar/SidebarGroupLabel";
+export { default as SidebarHeader } from "./components/sidebar/SidebarHeader";
+export { default as SidebarInput } from "./components/sidebar/SidebarInput";
+export { default as SidebarInset } from "./components/sidebar/SidebarInset";
+export { default as SidebarMenu } from "./components/sidebar/SidebarMenu";
+export { default as SidebarMenuAction } from "./components/sidebar/SidebarMenuAction";
+export { default as SidebarMenuBadge } from "./components/sidebar/SidebarMenuBadge";
+export { default as SidebarMenuButton } from "./components/sidebar/SidebarMenuButton";
+export { default as SidebarMenuItem } from "./components/sidebar/SidebarMenuItem";
+export { default as SidebarMenuSkeleton } from "./components/sidebar/SidebarMenuSkeleton";
+export { default as SidebarMenuSub } from "./components/sidebar/SidebarMenuSub";
+export { default as SidebarMenuSubButton } from "./components/sidebar/SidebarMenuSubButton";
+export { default as SidebarMenuSubItem } from "./components/sidebar/SidebarMenuSubItem";
+export { default as SidebarProvider } from "./components/sidebar/SidebarProvider";
+export { default as SidebarRail } from "./components/sidebar/SidebarRail";
+export { default as SidebarSeparator } from "./components/sidebar/SidebarSeparator";
+export { default as SidebarTrigger } from "./components/sidebar/SidebarTrigger";
+
 // Sonner
 export { default as Toaster } from "./components/sonner/Toaster";
 
