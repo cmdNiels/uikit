@@ -51,6 +51,15 @@ export { default as CardFooter } from "./components/card/CardFooter";
 export { default as CardHeader } from "./components/card/CardHeader";
 export { default as CardTitle } from "./components/card/CardTitle";
 
+// Chart
+export type { ChartConfig } from "./components/chart/ChartContext";
+export { default as ChartContainer } from "./components/chart/ChartContainer";
+export { default as ChartLegend } from "./components/chart/ChartLegend";
+export { default as ChartLegendContent } from "./components/chart/ChartLegendContent";
+export { default as ChartStyle } from "./components/chart/ChartStyle";
+export { default as ChartTooltip } from "./components/chart/ChartTooltip";
+export { default as ChartTooltipContent } from "./components/chart/ChartTooltipContent";
+
 // Checkbox
 export { default as Checkbox } from "./components/checkbox/Checkbox";
 
