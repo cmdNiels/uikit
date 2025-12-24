@@ -34,6 +34,10 @@ import SidebarTrigger from "./SidebarTrigger";
 
 import type { Story } from "@ladle/react";
 
+export default {
+	title: "UI/Sidebar",
+};
+
 export const Default: Story = () => (
 	<SidebarProvider>
 		<Sidebar>
