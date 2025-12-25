@@ -11,6 +11,16 @@ export const Provider: GlobalProvider = ({ children, globalState }) => {
 	useEffect(() => {
 		document.documentElement.classList.remove("light", "dark");
 		document.documentElement.classList.add(theme);
+
+		const iframe = document.querySelector<HTMLIFrameElement>("iframe.ladle-iframe");
+		try {
+			if (iframe?.contentDocument) {
+				iframe.contentDocument.documentElement.classList.remove("light", "dark");
+				iframe.contentDocument.documentElement.classList.add(theme);
+			}
+		} catch (_e) {
+			// Cross-origin iframe, can't access
+		}
 	}, [theme]);
 
 	return (

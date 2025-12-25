@@ -27,12 +27,14 @@ export default {
 		width: {
 			enabled: true,
 			options: {
-				xsmall: 414,
-				small: 640,
-				medium: 768,
-				large: 1024,
+				mobile: 375, // Mobile (iPhone SE)
+				sm: 640, // Tailwind sm breakpoint
+				md: 768, // Tailwind md breakpoint
+				lg: 1024, // Tailwind lg breakpoint
+				xl: 1280, // Tailwind xl breakpoint
+				"2xl": 1536, // Tailwind 2xl breakpoint
 			},
-			defaultState: 0,
+			defaultState: 1024, // 0 = full width (no viewport restriction)
 		},
 	},
 };
