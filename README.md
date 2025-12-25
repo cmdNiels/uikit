@@ -113,13 +113,13 @@ export default function MyComponent() {
 
 ## Available Components
 
-- **Layout**: Accordion, Card, Item, Separator, Table
+- **Layout**: Accordion, AspectRatio, Card, Item, ScrollArea, Separator, Sheet, Sidebar, Table
 - **Forms**: Button, ButtonGroup, Checkbox, Input, InputGroup, Label, Select, Switch, Textarea, Toggle
-- **Data Entry**: Calendar, Combobox, DatePicker, Field, FileDropzone
-- **Feedback**: Alert, AlertDialog, Error, Skeleton, Toaster (Sonner)
+- **Data Entry**: Calendar, Combobox, CopyInput, DatePicker, Field, FileDropzone, LinkInput
+- **Feedback**: Alert, AlertDialog, Error, Skeleton, Spinner, Toaster (Sonner)
 - **Navigation**: ContextMenu, DropdownMenu
 - **Overlay**: Popover, Tooltip
-- **Utilities**: AspectRatio, Badge, Sortable
+- **Utilities**: Badge, Chart, Sortable
 - **Typography**: Complete set of typography components
 
 ## Development
