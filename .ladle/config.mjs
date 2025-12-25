@@ -37,4 +37,14 @@ export default {
 			defaultState: 1024, // 0 = full width (no viewport restriction)
 		},
 	},
+	appendToHead: `
+		<style>
+			header.ladle-addons {
+				margin-bottom: 1rem;
+			}
+			nav.ladle-aside {
+				padding: 1rem;
+			}
+		</style>
+	`,
 };
