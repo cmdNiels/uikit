@@ -1,64 +1,65 @@
-"use client";
-
 import { toast } from "sonner";
 
 import Button from "@/components/button/Button";
 
 import Toaster from "./Toaster";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Toaster",
 };
 
-export const Default = () => (
-	<>
-		<Toaster />
-		<Button onClick={() => toast("This is a toast notification")}>Show Toast</Button>
-	</>
-);
+export const Default: Story<
+	Partial<ComponentProps<typeof Toaster>> & {
+		type: "default" | "success" | "error" | "warning" | "info";
+		message: string;
+	}
+> = ({ type, message }) => {
+	const handleClick = () => {
+		switch (type) {
+			case "success":
+				toast.success(message);
+				break;
+			case "error":
+				toast.error(message);
+				break;
+			case "warning":
+				toast.warning(message);
+				break;
+			case "info":
+				toast.info(message);
+				break;
+			default:
+				toast(message);
+		}
+	};
 
-export const Success = () => (
-	<>
-		<Toaster />
-		<Button onClick={() => toast.success("Operation completed successfully")}>Show Success</Button>
-	</>
-);
+	return (
+		<>
+			<Toaster />
+			<Button onClick={handleClick}>Show Toast</Button>
+		</>
+	);
+};
 
-export const Error = () => (
-	<>
-		<Toaster />
-		<Button onClick={() => toast.error("An error occurred")}>Show Error</Button>
-	</>
-);
+Default.args = {
+	type: "default",
+	message: "This is a toast notification",
+};
 
-export const Warning = () => (
-	<>
-		<Toaster />
-		<Button onClick={() => toast.warning("This is a warning")}>Show Warning</Button>
-	</>
-);
-
-export const Info = () => (
-	<>
-		<Toaster />
-		<Button onClick={() => toast.info("Here is some information")}>Show Info</Button>
-	</>
-);
-
-export const WithDescription = () => (
-	<>
-		<Toaster />
-		<Button
-			onClick={() =>
-				toast("Event Scheduled", {
-					description: "Your event has been scheduled for tomorrow at 10:00 AM",
-				})
-			}
-		>
-			Show Toast with Description
-		</Button>
-	</>
-);
+Default.argTypes = {
+	type: {
+		control: { type: "select" },
+		options: ["default", "success", "error", "warning", "info"],
+		defaultValue: "default",
+	},
+	message: {
+		control: { type: "text" },
+		defaultValue: "This is a toast notification",
+	},
+};
 
 export const WithAction = () => (
 	<>
@@ -69,7 +70,7 @@ export const WithAction = () => (
 					action: {
 						label: "Undo",
 						onClick: () => {
-							// Undo action triggered
+							toast("Action undone");
 						},
 					},
 				})

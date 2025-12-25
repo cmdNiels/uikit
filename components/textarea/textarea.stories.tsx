@@ -1,15 +1,49 @@
 import Textarea from "./Textarea";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Textarea",
 };
 
-export const Default = () => <Textarea placeholder="Type your message here..." className="w-[350px]" />;
-
-export const WithRows = () => <Textarea placeholder="Type your message here..." rows={6} className="w-[350px]" />;
-
-export const Disabled = () => <Textarea placeholder="Disabled textarea" disabled={true} className="w-[350px]" />;
-
-export const WithValue = () => (
-	<Textarea defaultValue="This is some example text in the textarea." className="w-[350px]" />
+export const Default: Story<Partial<ComponentProps<typeof Textarea>>> = ({
+	placeholder,
+	rows,
+	disabled,
+	defaultValue,
+}) => (
+	<Textarea
+		placeholder={placeholder}
+		rows={rows}
+		disabled={disabled}
+		defaultValue={defaultValue}
+		className="w-[350px]"
+	/>
 );
+
+Default.args = {
+	placeholder: "Type your message here...",
+	rows: 4,
+	disabled: false,
+	defaultValue: "",
+};
+
+Default.argTypes = {
+	placeholder: {
+		control: { type: "text" },
+		defaultValue: "Type your message here...",
+	},
+	rows: {
+		control: { type: "number" },
+		defaultValue: 4,
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	defaultValue: {
+		control: { type: "text" },
+		defaultValue: "",
+	},
+};

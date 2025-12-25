@@ -4,51 +4,45 @@ import Tooltip from "./Tooltip";
 import TooltipContent from "./TooltipContent";
 import TooltipTrigger from "./TooltipTrigger";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Tooltip",
 };
 
-export const Default = () => (
+export const Default: Story<
+	Partial<ComponentProps<typeof TooltipContent>> & {
+		content: string;
+		buttonText: string;
+	}
+> = ({ side, content, buttonText }) => (
 	<Tooltip>
 		<TooltipTrigger>
-			<Button variant="outline">Hover me</Button>
+			<Button variant="outline">{buttonText}</Button>
 		</TooltipTrigger>
-		<TooltipContent>This is a tooltip</TooltipContent>
+		<TooltipContent side={side}>{content}</TooltipContent>
 	</Tooltip>
 );
 
-export const SideTop = () => (
-	<Tooltip>
-		<TooltipTrigger>
-			<Button variant="outline">Top</Button>
-		</TooltipTrigger>
-		<TooltipContent side="top">Tooltip on top</TooltipContent>
-	</Tooltip>
-);
+Default.args = {
+	side: "top",
+	content: "This is a tooltip",
+	buttonText: "Hover me",
+};
 
-export const SideBottom = () => (
-	<Tooltip>
-		<TooltipTrigger>
-			<Button variant="outline">Bottom</Button>
-		</TooltipTrigger>
-		<TooltipContent side="bottom">Tooltip on bottom</TooltipContent>
-	</Tooltip>
-);
-
-export const SideLeft = () => (
-	<Tooltip>
-		<TooltipTrigger>
-			<Button variant="outline">Left</Button>
-		</TooltipTrigger>
-		<TooltipContent side="left">Tooltip on left</TooltipContent>
-	</Tooltip>
-);
-
-export const SideRight = () => (
-	<Tooltip>
-		<TooltipTrigger>
-			<Button variant="outline">Right</Button>
-		</TooltipTrigger>
-		<TooltipContent side="right">Tooltip on right</TooltipContent>
-	</Tooltip>
-);
+Default.argTypes = {
+	side: {
+		control: { type: "select" },
+		options: ["top", "bottom", "left", "right"],
+		defaultValue: "top",
+	},
+	content: {
+		control: { type: "text" },
+		defaultValue: "This is a tooltip",
+	},
+	buttonText: {
+		control: { type: "text" },
+		defaultValue: "Hover me",
+	},
+};

@@ -5,18 +5,54 @@ import ItemDescription from "./ItemDescription";
 import ItemMedia from "./ItemMedia";
 import ItemTitle from "./ItemTitle";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Item",
 };
 
-export const Default = () => (
-	<Item className="w-[350px]">
+export const Default: Story<
+	Partial<ComponentProps<typeof Item>> & {
+		title: string;
+		description: string;
+	}
+> = ({ variant, size, title, description }) => (
+	<Item variant={variant} size={size} className="w-[350px]">
 		<ItemContent>
-			<ItemTitle>Item Title</ItemTitle>
-			<ItemDescription>This is a description of the item</ItemDescription>
+			<ItemTitle>{title}</ItemTitle>
+			<ItemDescription>{description}</ItemDescription>
 		</ItemContent>
 	</Item>
 );
+
+Default.args = {
+	variant: "default",
+	size: "default",
+	title: "Item Title",
+	description: "This is a description of the item",
+};
+
+Default.argTypes = {
+	variant: {
+		control: { type: "select" },
+		options: ["default", "outline", "muted"],
+		defaultValue: "default",
+	},
+	size: {
+		control: { type: "select" },
+		options: ["default", "sm", "xs"],
+		defaultValue: "default",
+	},
+	title: {
+		control: { type: "text" },
+		defaultValue: "Item Title",
+	},
+	description: {
+		control: { type: "text" },
+		defaultValue: "This is a description of the item",
+	},
+};
 
 export const WithMedia = () => (
 	<Item className="w-[350px]">
@@ -41,41 +77,5 @@ export const WithActions = () => (
 		<ItemActions>
 			<button className="text-sm text-primary">Edit</button>
 		</ItemActions>
-	</Item>
-);
-
-export const Small = () => (
-	<Item size="sm" className="w-[300px]">
-		<ItemContent>
-			<ItemTitle>Small Item</ItemTitle>
-			<ItemDescription>Compact size variant</ItemDescription>
-		</ItemContent>
-	</Item>
-);
-
-export const ExtraSmall = () => (
-	<Item size="xs" className="w-[250px]">
-		<ItemContent>
-			<ItemTitle>Extra Small Item</ItemTitle>
-			<ItemDescription>Very compact size variant</ItemDescription>
-		</ItemContent>
-	</Item>
-);
-
-export const Outline = () => (
-	<Item variant="outline" className="w-[350px]">
-		<ItemContent>
-			<ItemTitle>Outline Variant</ItemTitle>
-			<ItemDescription>Item with border</ItemDescription>
-		</ItemContent>
-	</Item>
-);
-
-export const Muted = () => (
-	<Item variant="muted" className="w-[350px]">
-		<ItemContent>
-			<ItemTitle>Muted Variant</ItemTitle>
-			<ItemDescription>Subtle background variant</ItemDescription>
-		</ItemContent>
 	</Item>
 );

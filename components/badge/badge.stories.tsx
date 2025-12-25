@@ -1,17 +1,29 @@
 import Badge from "./Badge";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Badge",
 };
 
-export const Default = () => <Badge variant="default">Badge</Badge>;
+export const Default: Story<Partial<ComponentProps<typeof Badge>>> = ({ variant, children }) => (
+	<Badge variant={variant}>{children}</Badge>
+);
 
-export const Secondary = () => <Badge variant="secondary">Secondary</Badge>;
+Default.args = {
+	variant: "default",
+	children: "Badge",
+};
 
-export const Destructive = () => <Badge variant="destructive">Destructive</Badge>;
-
-export const Outline = () => <Badge variant="outline">Outline</Badge>;
-
-export const Ghost = () => <Badge variant="ghost">Ghost</Badge>;
-
-export const Link = () => <Badge variant="link">Link</Badge>;
+Default.argTypes = {
+	variant: {
+		control: { type: "select" },
+		options: ["default", "secondary", "destructive", "outline", "ghost", "link"],
+		defaultValue: "default",
+	},
+	children: {
+		control: { type: "text" },
+		defaultValue: "Badge",
+	},
+};

@@ -6,56 +6,56 @@ import PopoverHeader from "./PopoverHeader";
 import PopoverTitle from "./PopoverTitle";
 import PopoverTrigger from "./PopoverTrigger";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Popover",
 };
 
-export const Default = () => (
+export const Default: Story<
+	Partial<ComponentProps<typeof PopoverContent>> & {
+		title: string;
+		content: string;
+		buttonText: string;
+	}
+> = ({ side, title, content, buttonText }) => (
 	<Popover>
 		<PopoverTrigger>
-			<Button variant="outline">Open Popover</Button>
+			<Button variant="outline">{buttonText}</Button>
 		</PopoverTrigger>
-		<PopoverContent>
+		<PopoverContent side={side}>
 			<PopoverHeader>
-				<PopoverTitle>Popover Title</PopoverTitle>
+				<PopoverTitle>{title}</PopoverTitle>
 			</PopoverHeader>
-			<p>This is some content inside the popover.</p>
+			<p>{content}</p>
 		</PopoverContent>
 	</Popover>
 );
 
-export const SideTop = () => (
-	<Popover>
-		<PopoverTrigger>
-			<Button variant="outline">Open Top</Button>
-		</PopoverTrigger>
-		<PopoverContent side="top">
-			<PopoverTitle>Top Popover</PopoverTitle>
-			<p>This popover appears on top.</p>
-		</PopoverContent>
-	</Popover>
-);
+Default.args = {
+	side: "bottom",
+	title: "Popover Title",
+	content: "This is some content inside the popover.",
+	buttonText: "Open Popover",
+};
 
-export const SideLeft = () => (
-	<Popover>
-		<PopoverTrigger>
-			<Button variant="outline">Open Left</Button>
-		</PopoverTrigger>
-		<PopoverContent side="left">
-			<PopoverTitle>Left Popover</PopoverTitle>
-			<p>This popover appears on the left.</p>
-		</PopoverContent>
-	</Popover>
-);
-
-export const SideRight = () => (
-	<Popover>
-		<PopoverTrigger>
-			<Button variant="outline">Open Right</Button>
-		</PopoverTrigger>
-		<PopoverContent side="right">
-			<PopoverTitle>Right Popover</PopoverTitle>
-			<p>This popover appears on the right.</p>
-		</PopoverContent>
-	</Popover>
-);
+Default.argTypes = {
+	side: {
+		control: { type: "select" },
+		options: ["top", "bottom", "left", "right"],
+		defaultValue: "bottom",
+	},
+	title: {
+		control: { type: "text" },
+		defaultValue: "Popover Title",
+	},
+	content: {
+		control: { type: "text" },
+		defaultValue: "This is some content inside the popover.",
+	},
+	buttonText: {
+		control: { type: "text" },
+		defaultValue: "Open Popover",
+	},
+};

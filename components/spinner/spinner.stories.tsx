@@ -1,17 +1,41 @@
 import Spinner from "./Spinner";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Spinner",
 };
 
-export const Default = () => <Spinner />;
+export const Default: Story<
+	Partial<ComponentProps<typeof Spinner>> & {
+		size: "sm" | "md" | "lg" | "xl";
+		color: string;
+	}
+> = ({ size, color }) => {
+	const sizeClasses = {
+		sm: "size-3",
+		md: "size-6",
+		lg: "size-8",
+		xl: "size-12",
+	};
 
-export const Small = () => <Spinner className="size-3" />;
+	return <Spinner className={`${sizeClasses[size]} ${color}`} />;
+};
 
-export const Medium = () => <Spinner className="size-6" />;
+Default.args = {
+	size: "md",
+	color: "",
+};
 
-export const Large = () => <Spinner className="size-8" />;
-
-export const ExtraLarge = () => <Spinner className="size-12" />;
-
-export const CustomColor = () => <Spinner className="text-blue-500" />;
+Default.argTypes = {
+	size: {
+		control: { type: "select" },
+		options: ["sm", "md", "lg", "xl"],
+		defaultValue: "md",
+	},
+	color: {
+		control: { type: "text" },
+		defaultValue: "",
+	},
+};

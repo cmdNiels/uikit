@@ -3,12 +3,15 @@ import AccordionContent from "./AccordionContent";
 import AccordionItem from "./AccordionItem";
 import AccordionTrigger from "./AccordionTrigger";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Accordion",
 };
 
-export const Default = () => (
-	<Accordion className="w-96">
+export const Default: Story<Partial<ComponentProps<typeof Accordion>>> = ({ multiple }) => (
+	<Accordion multiple={multiple} className="w-96">
 		<AccordionItem value="item-1">
 			<AccordionTrigger>Is it accessible?</AccordionTrigger>
 			<AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
@@ -28,30 +31,13 @@ export const Default = () => (
 	</Accordion>
 );
 
-export const Multiple = () => (
-	<Accordion multiple className="w-96">
-		<AccordionItem value="item-1">
-			<AccordionTrigger>Can I open multiple items?</AccordionTrigger>
-			<AccordionContent>Yes! This accordion allows multiple items to be open at once.</AccordionContent>
-		</AccordionItem>
-		<AccordionItem value="item-2">
-			<AccordionTrigger>How does it work?</AccordionTrigger>
-			<AccordionContent>Just set the multiple prop to true.</AccordionContent>
-		</AccordionItem>
-	</Accordion>
-);
+Default.args = {
+	multiple: false,
+};
 
-export const DefaultOpen = () => (
-	<Accordion defaultValue={["item-1"]} className="w-96">
-		<AccordionItem value="item-1">
-			<AccordionTrigger>This item is open by default</AccordionTrigger>
-			<AccordionContent>
-				You can control which items are open by default using the defaultValue prop.
-			</AccordionContent>
-		</AccordionItem>
-		<AccordionItem value="item-2">
-			<AccordionTrigger>This item is closed</AccordionTrigger>
-			<AccordionContent>But you can open it by clicking the trigger.</AccordionContent>
-		</AccordionItem>
-	</Accordion>
-);
+Default.argTypes = {
+	multiple: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+};

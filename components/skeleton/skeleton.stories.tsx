@@ -1,12 +1,49 @@
 import Skeleton from "./Skeleton";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Skeleton",
 };
 
-export const Default = () => <Skeleton className="h-12 w-[250px]" />;
+export const Default: Story<
+	Partial<ComponentProps<typeof Skeleton>> & {
+		width: string;
+		height: string;
+		rounded: "default" | "full" | "xl";
+	}
+> = ({ width, height, rounded }) => {
+	const roundedClass = {
+		default: "",
+		full: "rounded-full",
+		xl: "rounded-xl",
+	};
 
-export const Circle = () => <Skeleton className="size-12 rounded-full" />;
+	return <Skeleton className={`${roundedClass[rounded]}`} style={{ width, height }} />;
+};
+
+Default.args = {
+	width: "250px",
+	height: "48px",
+	rounded: "default",
+};
+
+Default.argTypes = {
+	width: {
+		control: { type: "text" },
+		defaultValue: "250px",
+	},
+	height: {
+		control: { type: "text" },
+		defaultValue: "48px",
+	},
+	rounded: {
+		control: { type: "select" },
+		options: ["default", "full", "xl"],
+		defaultValue: "default",
+	},
+};
 
 export const Card = () => (
 	<div className="flex flex-col space-y-3">

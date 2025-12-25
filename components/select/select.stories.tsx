@@ -5,13 +5,16 @@ import SelectItem from "./SelectItem";
 import SelectTrigger from "./SelectTrigger";
 import SelectValue from "./SelectValue";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Select",
 };
 
-export const Default = () => (
+export const Default: Story<Partial<ComponentProps<typeof SelectTrigger>>> = ({ size, disabled }) => (
 	<Select>
-		<SelectTrigger>
+		<SelectTrigger size={size} disabled={disabled}>
 			<SelectValue />
 		</SelectTrigger>
 		<SelectContent>
@@ -26,46 +29,19 @@ export const Default = () => (
 	</Select>
 );
 
-export const Small = () => (
-	<Select>
-		<SelectTrigger size="sm">
-			<SelectValue />
-		</SelectTrigger>
-		<SelectContent>
-			<SelectGroup>
-				<SelectItem value="apple">Apple</SelectItem>
-				<SelectItem value="banana">Banana</SelectItem>
-				<SelectItem value="cherry">Cherry</SelectItem>
-			</SelectGroup>
-		</SelectContent>
-	</Select>
-);
+Default.args = {
+	size: "default",
+	disabled: false,
+};
 
-export const WithDefaultValue = () => (
-	<Select defaultValue="banana">
-		<SelectTrigger>
-			<SelectValue />
-		</SelectTrigger>
-		<SelectContent>
-			<SelectGroup>
-				<SelectItem value="apple">Apple</SelectItem>
-				<SelectItem value="banana">Banana</SelectItem>
-				<SelectItem value="cherry">Cherry</SelectItem>
-			</SelectGroup>
-		</SelectContent>
-	</Select>
-);
-
-export const Disabled = () => (
-	<Select>
-		<SelectTrigger disabled>
-			<SelectValue />
-		</SelectTrigger>
-		<SelectContent>
-			<SelectGroup>
-				<SelectItem value="apple">Apple</SelectItem>
-				<SelectItem value="banana">Banana</SelectItem>
-			</SelectGroup>
-		</SelectContent>
-	</Select>
-);
+Default.argTypes = {
+	size: {
+		control: { type: "select" },
+		options: ["sm", "default"],
+		defaultValue: "default",
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+};

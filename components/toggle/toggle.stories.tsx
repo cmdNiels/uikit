@@ -2,38 +2,72 @@ import { IconBold } from "@tabler/icons-react";
 
 import Toggle from "./Toggle";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Toggle",
 };
 
-export const Default = () => (
-	<Toggle variant="default" size="default">
+export const Default: Story<Partial<ComponentProps<typeof Toggle>>> = ({ variant, size, disabled }) => (
+	<Toggle variant={variant} size={size} disabled={disabled}>
 		<IconBold />
 	</Toggle>
 );
 
-export const Outline = () => (
-	<Toggle variant="outline" size="default">
-		<IconBold />
+Default.args = {
+	variant: "default",
+	size: "default",
+	disabled: false,
+};
+
+Default.argTypes = {
+	variant: {
+		control: { type: "select" },
+		options: ["default", "outline"],
+		defaultValue: "default",
+	},
+	size: {
+		control: { type: "select" },
+		options: ["default", "sm", "lg"],
+		defaultValue: "default",
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+};
+
+export const WithText: Story<Partial<ComponentProps<typeof Toggle>>> = ({ variant, size, disabled, children }) => (
+	<Toggle variant={variant} size={size} disabled={disabled}>
+		{children}
 	</Toggle>
 );
 
-export const Small = () => (
-	<Toggle size="sm">
-		<IconBold />
-	</Toggle>
-);
+WithText.args = {
+	variant: "default",
+	size: "default",
+	disabled: false,
+	children: "Toggle",
+};
 
-export const Large = () => (
-	<Toggle size="lg">
-		<IconBold />
-	</Toggle>
-);
-
-export const WithText = () => <Toggle variant="default">Toggle</Toggle>;
-
-export const Disabled = () => (
-	<Toggle disabled>
-		<IconBold />
-	</Toggle>
-);
+WithText.argTypes = {
+	variant: {
+		control: { type: "select" },
+		options: ["default", "outline"],
+		defaultValue: "default",
+	},
+	size: {
+		control: { type: "select" },
+		options: ["default", "sm", "lg"],
+		defaultValue: "default",
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	children: {
+		control: { type: "text" },
+		defaultValue: "Toggle",
+	},
+};

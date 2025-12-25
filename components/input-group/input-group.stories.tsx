@@ -5,51 +5,62 @@ import InputGroupAddon from "./InputGroupAddon";
 import InputGroupButton from "./InputGroupButton";
 import InputGroupInput from "./InputGroupInput";
 import InputGroupText from "./InputGroupText";
-import InputGroupTextarea from "./InputGroupTextarea";
+
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
 
 export default {
 	title: "UI/InputGroup",
 };
 
-export const Default = () => (
+export const Default: Story<
+	Partial<ComponentProps<typeof InputGroupInput>> & {
+		placeholder: string;
+	}
+> = ({ placeholder, type }) => (
 	<InputGroup>
-		<InputGroupInput placeholder="Enter text..." />
+		<InputGroupInput placeholder={placeholder} type={type} />
 	</InputGroup>
 );
 
-export const WithAddonPrefix = () => (
+Default.args = {
+	placeholder: "Enter text...",
+	type: "text",
+};
+
+Default.argTypes = {
+	placeholder: {
+		control: { type: "text" },
+		defaultValue: "Enter text...",
+	},
+	type: {
+		control: { type: "select" },
+		options: ["text", "number"],
+		defaultValue: "text",
+	},
+};
+
+export const WithAddon: Story<
+	Partial<ComponentProps<typeof InputGroupInput>> & {
+		placeholder: string;
+	}
+> = ({ placeholder }) => (
 	<InputGroup>
 		<InputGroupAddon>@</InputGroupAddon>
-		<InputGroupInput placeholder="username" />
+		<InputGroupInput placeholder={placeholder} />
 	</InputGroup>
 );
 
-export const WithAddonSuffix = () => (
-	<InputGroup>
-		<InputGroupInput placeholder="amount" />
-		<InputGroupAddon>.00</InputGroupAddon>
-	</InputGroup>
-);
+WithAddon.args = {
+	placeholder: "username",
+};
 
-export const WithText = () => (
-	<InputGroup>
-		<InputGroupText>$</InputGroupText>
-		<InputGroupInput placeholder="0.00" type="number" />
-	</InputGroup>
-);
-
-export const WithButton = () => (
-	<InputGroup>
-		<InputGroupInput placeholder="Search..." />
-		<InputGroupButton>Search</InputGroupButton>
-	</InputGroup>
-);
-
-export const WithTextarea = () => (
-	<InputGroup>
-		<InputGroupTextarea placeholder="Enter your message..." rows={4} />
-	</InputGroup>
-);
+WithAddon.argTypes = {
+	placeholder: {
+		control: { type: "text" },
+		defaultValue: "username",
+	},
+};
 
 export const WithIcon = () => (
 	<InputGroup>
@@ -60,23 +71,16 @@ export const WithIcon = () => (
 	</InputGroup>
 );
 
-export const WithInlineEndAddon = () => (
+export const WithButton = () => (
 	<InputGroup>
-		<InputGroupInput placeholder="Enter URL..." />
-		<InputGroupAddon align="inline-end">.com</InputGroupAddon>
+		<InputGroupInput placeholder="Search..." />
+		<InputGroupButton>Search</InputGroupButton>
 	</InputGroup>
 );
 
-export const WithBlockStartAddon = () => (
+export const WithText = () => (
 	<InputGroup>
-		<InputGroupAddon align="block-start">Label</InputGroupAddon>
-		<InputGroupInput placeholder="Enter value..." />
-	</InputGroup>
-);
-
-export const WithBlockEndAddon = () => (
-	<InputGroup>
-		<InputGroupInput placeholder="Enter value..." />
-		<InputGroupAddon align="block-end">Helper text</InputGroupAddon>
+		<InputGroupText>$</InputGroupText>
+		<InputGroupInput placeholder="0.00" type="number" />
 	</InputGroup>
 );

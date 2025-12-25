@@ -2,33 +2,89 @@ import { IconHome } from "@tabler/icons-react";
 
 import Button from "./Button";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Button",
 };
 
-export const Default = () => <Button variant="default">Button</Button>;
+export const Default: Story<Partial<ComponentProps<typeof Button>>> = ({
+	variant,
+	size,
+	loading,
+	disabled,
+	children,
+}) => (
+	<Button variant={variant} size={size} loading={loading} disabled={disabled}>
+		{children}
+	</Button>
+);
 
-export const WithIcon = () => (
-	<Button variant="default">
+Default.args = {
+	variant: "default",
+	size: "default",
+	loading: false,
+	disabled: false,
+	children: "Button",
+};
+
+Default.argTypes = {
+	variant: {
+		control: { type: "select" },
+		options: ["default", "destructive", "outline", "secondary", "ghost", "link", "none"],
+		defaultValue: "default",
+	},
+	size: {
+		control: { type: "select" },
+		options: ["default", "xs", "sm", "lg", "icon", "icon-xs", "icon-sm", "icon-lg"],
+		defaultValue: "default",
+	},
+	loading: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	children: {
+		control: { type: "text" },
+		defaultValue: "Button",
+	},
+};
+
+export const WithIcon: Story<Partial<ComponentProps<typeof Button>>> = ({ variant, size, loading, disabled }) => (
+	<Button variant={variant} size={size} loading={loading} disabled={disabled}>
 		<IconHome />
 		Button
 	</Button>
 );
 
-export const Destructive = () => <Button variant="destructive">Delete</Button>;
+WithIcon.args = {
+	variant: "default",
+	size: "default",
+	loading: false,
+	disabled: false,
+};
 
-export const Outline = () => <Button variant="outline">Outline</Button>;
-
-export const Secondary = () => <Button variant="secondary">Secondary</Button>;
-
-export const Ghost = () => <Button variant="ghost">Ghost</Button>;
-
-export const Link = () => <Button variant="link">Link</Button>;
-
-export const Small = () => <Button size="sm">Small Button</Button>;
-
-export const Large = () => <Button size="lg">Large Button</Button>;
-
-export const Loading = () => <Button loading>Loading</Button>;
-
-export const Disabled = () => <Button disabled>Disabled</Button>;
+WithIcon.argTypes = {
+	variant: {
+		control: { type: "select" },
+		options: ["default", "destructive", "outline", "secondary", "ghost", "link", "none"],
+		defaultValue: "default",
+	},
+	size: {
+		control: { type: "select" },
+		options: ["default", "xs", "sm", "lg", "icon", "icon-xs", "icon-sm", "icon-lg"],
+		defaultValue: "default",
+	},
+	loading: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+};

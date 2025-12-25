@@ -2,25 +2,32 @@ import Button from "@/components/button/Button";
 
 import ButtonGroup from "./ButtonGroup";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/ButtonGroup",
 };
 
-export const Horizontal = () => (
-	<ButtonGroup orientation="horizontal">
-		<Button variant="outline">Left</Button>
-		<Button variant="outline">Middle</Button>
-		<Button variant="outline">Right</Button>
+export const Default: Story<Partial<ComponentProps<typeof ButtonGroup>>> = ({ orientation }) => (
+	<ButtonGroup orientation={orientation}>
+		<Button variant="outline">First</Button>
+		<Button variant="outline">Second</Button>
+		<Button variant="outline">Third</Button>
 	</ButtonGroup>
 );
 
-export const Vertical = () => (
-	<ButtonGroup orientation="vertical">
-		<Button variant="outline">Top</Button>
-		<Button variant="outline">Middle</Button>
-		<Button variant="outline">Bottom</Button>
-	</ButtonGroup>
-);
+Default.args = {
+	orientation: "horizontal",
+};
+
+Default.argTypes = {
+	orientation: {
+		control: { type: "select" },
+		options: ["horizontal", "vertical"],
+		defaultValue: "horizontal",
+	},
+};
 
 export const Mixed = () => (
 	<ButtonGroup orientation="horizontal">

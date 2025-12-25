@@ -1,26 +1,43 @@
-import InputGroupAddon from "@/components/input-group/InputGroupAddon";
-import InputGroupText from "@/components/input-group/InputGroupText";
-
 import LinkInput from "./LinkInput";
+
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
 
 export default {
 	title: "UI/LinkInput",
 };
 
-export const Default = () => <LinkInput placeholder="Enter text..." type="text" />;
-
-export const DefaultValue = () => (
-	<LinkInput placeholder="Enter text..." type="text" defaultValue="https://example.com" />
+export const Default: Story<Partial<ComponentProps<typeof LinkInput>>> = ({
+	placeholder,
+	defaultValue,
+	disabled,
+	"aria-invalid": ariaInvalid,
+}) => (
+	<LinkInput placeholder={placeholder} defaultValue={defaultValue} disabled={disabled} aria-invalid={ariaInvalid} />
 );
 
-export const Disabled = () => <LinkInput placeholder="Disabled input" disabled={true} />;
+Default.args = {
+	placeholder: "Enter text...",
+	defaultValue: "",
+	disabled: false,
+	"aria-invalid": false,
+};
 
-export const WithChildren = () => (
-	<LinkInput placeholder="example.com">
-		<InputGroupAddon>
-			<InputGroupText>https://</InputGroupText>
-		</InputGroupAddon>
-	</LinkInput>
-);
-
-export const WithError = () => <LinkInput placeholder="Invalid input" aria-invalid={true} />;
+Default.argTypes = {
+	placeholder: {
+		control: { type: "text" },
+		defaultValue: "Enter text...",
+	},
+	defaultValue: {
+		control: { type: "text" },
+		defaultValue: "",
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	"aria-invalid": {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+};

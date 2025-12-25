@@ -1,19 +1,42 @@
 import Input from "./Input";
 
+import type { Story } from "@ladle/react";
+import type { ComponentProps } from "react";
+
 export default {
 	title: "UI/Input",
 };
 
-export const Default = () => <Input placeholder="Enter text..." type="text" />;
+export const Default: Story<Partial<ComponentProps<typeof Input>>> = ({
+	type,
+	placeholder,
+	disabled,
+	"aria-invalid": ariaInvalid,
+}) => <Input type={type} placeholder={placeholder} disabled={disabled} aria-invalid={ariaInvalid} />;
 
-export const Email = () => <Input type="email" placeholder="Enter your email" />;
+Default.args = {
+	type: "text",
+	placeholder: "Enter text...",
+	disabled: false,
+	"aria-invalid": false,
+};
 
-export const Password = () => <Input type="password" placeholder="Enter your password" />;
-
-export const Number = () => <Input type="number" placeholder="Enter a number" />;
-
-export const Disabled = () => <Input placeholder="Disabled input" disabled={true} />;
-
-export const WithError = () => <Input placeholder="Invalid input" aria-invalid={true} />;
-
-export const File = () => <Input type="file" />;
+Default.argTypes = {
+	type: {
+		control: { type: "select" },
+		options: ["text", "email", "password", "number", "file"],
+		defaultValue: "text",
+	},
+	placeholder: {
+		control: { type: "text" },
+		defaultValue: "Enter text...",
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	"aria-invalid": {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+};
