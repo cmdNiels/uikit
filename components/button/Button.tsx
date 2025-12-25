@@ -20,7 +20,7 @@ export default function Button({
 		<ButtonPrimitive
 			data-slot="button"
 			className={cn(buttonVariants({ variant, size, className }), loading && "relative")}
-			disabled={disabled ?? loading}
+			disabled={loading || disabled}
 			{...props}
 		>
 			{loading && <Spinner className="absolute inset-0 m-auto" />}
