@@ -105,6 +105,18 @@ export { default as CopyInput } from "./components/copy-input/CopyInput";
 // Date Picker
 export { default as DatePicker } from "./components/date-picker/DatePicker";
 
+// Dialog
+export { default as Dialog } from "./components/dialog/Dialog";
+export { default as DialogClose } from "./components/dialog/DialogClose";
+export { default as DialogContent } from "./components/dialog/DialogContent";
+export { default as DialogDescription } from "./components/dialog/DialogDescription";
+export { default as DialogFooter } from "./components/dialog/DialogFooter";
+export { default as DialogHeader } from "./components/dialog/DialogHeader";
+export { default as DialogOverlay } from "./components/dialog/DialogOverlay";
+export { default as DialogPortal } from "./components/dialog/DialogPortal";
+export { default as DialogTitle } from "./components/dialog/DialogTitle";
+export { default as DialogTrigger } from "./components/dialog/DialogTrigger";
+
 // Dropdown Menu
 export { default as DropdownMenu } from "./components/dropdown-menu/DropdownMenu";
 export { default as DropdownMenuCheckboxItem } from "./components/dropdown-menu/DropdownMenuCheckboxItem";
