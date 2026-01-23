@@ -1,0 +1,22 @@
+[install]
+registry = "https://registry.npmjs.org/"
+auto = "fallback"
+
+[install.cache]
+disable = false
+
+[test]
+preload = []
+
+[run]
+shell = "system"
+bun = true
+
+[loader]
+".js" = "jsx"
+".jsx" = "jsx"
+".ts" = "tsx"
+".tsx" = "tsx"
+
+[dev]
+hot = true

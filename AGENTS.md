@@ -3,12 +3,16 @@
 ## Build, Lint, Test Commands
 
 ```bash
-pnpm dev              # Start development server (Convex + Next.js)
-pnpm build            # Build for production
-pnpm start            # Run production server
-pnpm lint             # Run ESLint
-pnpm lint:fix         # Fix ESLint issues automatically
-pnpm format           # Format JSON/YAML files with Prettier
+bun dev               # Start development server (Ladle component library)
+bun build             # Build for production
+bun build:docs        # Build documentation with Ladle
+bun preview           # Preview the built documentation
+bun lint              # Run ESLint
+bun lint:fix          # Fix ESLint issues automatically
+bun format            # Format JSON/YAML files with Prettier
+bun fix               # Run lint:fix and format together
+bun test              # Run tests with Bun's test runner
+bun install           # Install dependencies with Bun
 ```
 
 ## Code Style & Conventions
