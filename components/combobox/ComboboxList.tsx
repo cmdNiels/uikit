@@ -9,7 +9,7 @@ export default function ComboboxList({ className, ...props }: ComboboxPrimitive.
 		<ComboboxPrimitive.List
 			data-slot="combobox-list"
 			className={cn(
-				"scrollbar-hidden max-h-[min(calc(--spacing(72)---spacing(9)),calc(var(--available-height)---spacing(9)))] scroll-py-1 overflow-y-auto overscroll-contain p-1  data-empty:p-0",
+				"scrollbar-none max-h-[min(calc(--spacing(72)---spacing(9)),calc(var(--available-height)---spacing(9)))] scroll-py-1 overflow-y-auto overscroll-contain p-1  data-empty:p-0",
 				className
 			)}
 			{...props}

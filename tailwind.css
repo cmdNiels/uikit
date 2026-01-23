@@ -118,11 +118,65 @@
 	}
 }
 
-@utility scrollbar-hidden {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+/* Scrollbar Classes */
+@theme {
+	--scrollbar-thumb-color: var(--color-border);
+	--scrollbar-track-color: var(--color-background);
+	--scrollbar-gutter-modifier: "";
+}
 
+@utility scrollbar-none {
+	scrollbar-width: none;
 	&::-webkit-scrollbar {
 		display: none;
+	}
+}
+
+@utility scrollbar {
+	scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--scrollbar-thumb-color);
+	}
+	&::-webkit-scrollbar-track {
+		background-color: var(--scrollbar-track-color);
+	}
+}
+
+@utility scrollbar-stable {
+	scrollbar-gutter: stable var(--scrollbar-gutter-modifier);
+}
+
+@utility scrollbar-both-edges {
+	--scrollbar-gutter-modifier: both-edges;
+}
+
+@utility scrollbar-thumb-* {
+	--scrollbar-thumb-color: --value(--color-*);
+
+	scrollbar-arrow-color: var(--scrollbar-thumb-color);
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--scrollbar-thumb-color);
+	}
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: var(--scrollbar-thumb-color);
+	}
+	&::-webkit-scrollbar-thumb:active {
+		background-color: var(--scrollbar-thumb-color);
+	}
+}
+
+@utility scrollbar-track-* {
+	--scrollbar-track-color: --value(--color-*);
+
+	scrollbar-track-color: var(--scrollbar-track-color);
+	scrollbar-darkshadow-color: var(--scrollbar-track-color);
+	&::-webkit-scrollbar-track {
+		background-color: var(--scrollbar-track-color);
+	}
+	&::-webkit-scrollbar-track:hover {
+		background-color: var(--scrollbar-track-color);
+	}
+	&::-webkit-scrollbar-track:active {
+		background-color: var(--scrollbar-track-color);
 	}
 }

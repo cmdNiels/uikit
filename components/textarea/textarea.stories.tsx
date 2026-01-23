@@ -12,14 +12,7 @@ export const Default: Story<Partial<ComponentProps<typeof TextArea>>> = ({
 	rows,
 	disabled,
 	defaultValue,
-}) => (
-	<TextArea
-		placeholder={placeholder}
-		rows={rows}
-		disabled={disabled}
-		defaultValue={defaultValue}
-	/>
-);
+}) => <TextArea placeholder={placeholder} rows={rows} disabled={disabled} defaultValue={defaultValue} />;
 
 Default.args = {
 	placeholder: "Type your message here...",

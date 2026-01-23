@@ -3,7 +3,7 @@ import { forwardRef, type ComponentProps } from "react";
 import cn from "@/cn";
 
 const TypographyTable = forwardRef<HTMLTableElement, ComponentProps<"table">>(({ className, ...props }, ref) => (
-	<div className="my-6 scrollbar-hidden w-full overflow-y-auto rounded-lg border">
+	<div className="my-6 scrollbar-none w-full overflow-y-auto rounded-lg border">
 		<table
 			ref={ref}
 			className={cn(

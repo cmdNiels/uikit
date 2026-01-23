@@ -8,7 +8,7 @@ export default function SidebarContent({ className, ...props }: ComponentProps<"
 			data-slot="sidebar-content"
 			data-sidebar="content"
 			className={cn(
-				"scrollbar-hidden flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden",
+				"scrollbar-none flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden",
 				className
 			)}
 			{...props}

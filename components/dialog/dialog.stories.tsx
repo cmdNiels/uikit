@@ -1,6 +1,7 @@
 import Button from "@/components/button/Button";
 import Input from "@/components/input/Input";
 import Label from "@/components/label/Label";
+import TextArea from "@/components/textarea/TextArea";
 
 import Dialog from "./Dialog";
 import DialogClose from "./DialogClose";
@@ -43,6 +44,10 @@ export const Default: Story<
 				<div className="grid gap-3">
 					<Label htmlFor="dialog-demo-email">Email</Label>
 					<Input id="dialog-demo-email" type="email" placeholder="Enter your email" />
+				</div>
+				<div className="grid gap-3">
+					<Label htmlFor="dialog-demo-email">Email</Label>
+					<TextArea id="dialog-demo-email" placeholder="Enter your email" />
 				</div>
 			</div>
 			<DialogFooter>

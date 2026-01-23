@@ -6,7 +6,7 @@ const TypographyPre = forwardRef<HTMLPreElement, ComponentProps<"pre">>(({ class
 	<pre
 		ref={ref}
 		className={cn(
-			"scrollbar-hidden min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-data-highlighted-line:px-0 has-data-line-numbers:px-0 has-data-[slot=tabs]:p-0",
+			"scrollbar-none min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-data-highlighted-line:px-0 has-data-line-numbers:px-0 has-data-[slot=tabs]:p-0",
 			className
 		)}
 		{...props}
