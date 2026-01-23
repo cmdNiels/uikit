@@ -1,24 +1,23 @@
-import Textarea from "./Textarea";
+import TextArea from "./TextArea";
 
 import type { Story } from "@ladle/react";
 import type { ComponentProps } from "react";
 
 export default {
-	title: "UI/Textarea",
+	title: "UI/TextArea",
 };
 
-export const Default: Story<Partial<ComponentProps<typeof Textarea>>> = ({
+export const Default: Story<Partial<ComponentProps<typeof TextArea>>> = ({
 	placeholder,
 	rows,
 	disabled,
 	defaultValue,
 }) => (
-	<Textarea
+	<TextArea
 		placeholder={placeholder}
 		rows={rows}
 		disabled={disabled}
 		defaultValue={defaultValue}
-		className="w-[350px]"
 	/>
 );
 

@@ -279,7 +279,7 @@ export { default as TableHeader } from "./components/table/TableHeader";
 export { default as TableRow } from "./components/table/TableRow";
 
 // Textarea
-export { default as Textarea } from "./components/textarea/Textarea";
+export { default as TextArea } from "./components/textarea/TextArea";
 
 // Toggle
 export { default as Toggle } from "./components/toggle/Toggle";

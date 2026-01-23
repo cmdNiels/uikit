@@ -1,7 +1,7 @@
 "use client";
 
 import cn from "@/cn";
-import Textarea from "@/components/textarea/Textarea";
+import Textarea from "@/components/textarea/TextArea";
 
 import type { ComponentProps } from "react";
 
