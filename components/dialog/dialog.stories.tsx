@@ -28,9 +28,9 @@ export const Default: Story<
 	}
 > = ({ title, description, buttonText, showCloseButton }) => (
 	<Dialog>
-		<DialogTrigger>
+		<DialogTrigger render={
 			<Button variant="outline">{buttonText}</Button>
-		</DialogTrigger>
+		} />
 		<DialogContent showCloseButton={showCloseButton}>
 			<DialogHeader>
 				<DialogTitle>{title}</DialogTitle>
