@@ -25,7 +25,7 @@ export const Provider: GlobalProvider = ({ children, globalState }) => {
 
 	return (
 		<ThemeProvider attribute="class" defaultTheme={theme} forcedTheme={theme} enableSystem={false}>
-			<div className="min-h-screen bg-background p-8 text-foreground">{children}</div>
+			<div className="relative min-h-screen bg-background p-8 text-foreground">{children}</div>
 		</ThemeProvider>
 	);
 };
