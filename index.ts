@@ -169,7 +169,7 @@ export { default as InputGroupAddon } from "./components/input-group/InputGroupA
 export { default as InputGroupButton } from "./components/input-group/InputGroupButton";
 export { default as InputGroupInput } from "./components/input-group/InputGroupInput";
 export { default as InputGroupText } from "./components/input-group/InputGroupText";
-export { default as InputGroupTextarea } from "./components/input-group/InputGroupTextarea";
+export { default as InputGroupTextArea } from "./components/input-group/InputGroupTextArea";
 
 // Item
 export { default as Item } from "./components/item/Item";
