@@ -1,0 +1,8 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	"instructions": [
+		"https://raw.githubusercontent.com/cmdNiels/eslint-config/main/rules/default.md",
+		"https://raw.githubusercontent.com/cmdNiels/eslint-config/main/rules/ts.md",
+		"https://raw.githubusercontent.com/cmdNiels/eslint-config/main/rules/web.md",
+	],
+}
