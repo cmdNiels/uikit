@@ -2,22 +2,10 @@
 
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { IconCheck } from "@tabler/icons-react";
-import { useContext, useEffect } from "react";
 
 import cn from "@/cn";
 
-import { SelectRegistryContext } from "./Select";
-
 export default function SelectItem({ className, children, value, ...props }: SelectPrimitive.Item.Props) {
-	const registry = useContext(SelectRegistryContext);
-
-	useEffect(() => {
-		if (registry && value !== undefined) {
-			const label = typeof children === "string" ? children : String(children);
-			registry.set(value, label);
-		}
-	}, [registry, value, children]);
-
 	return (
 		<SelectPrimitive.Item
 			data-slot="select-item"
