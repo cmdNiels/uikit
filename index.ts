@@ -160,6 +160,9 @@ export { default as FieldTitle } from "./components/field/FieldTitle";
 // File Dropzone
 export { default as FileDropzone } from "./components/file-dropzone/FileDropzone";
 
+// Glass
+export { default as Glass } from "./components/glass/Glass";
+
 // Input
 export { default as Input } from "./components/input/Input";
 
