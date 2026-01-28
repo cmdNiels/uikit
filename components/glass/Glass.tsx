@@ -87,7 +87,7 @@ export default function Glass({
 			<div
 				{...props}
 				ref={containerRef}
-				className={cn("relative isolate overflow-hidden bg-card/10 shadow-xl", className)}
+				className={cn("relative isolate overflow-hidden rounded-lg bg-card/10 shadow-xl", className)}
 				style={{ zIndex }}
 			>
 				{refraction && (
