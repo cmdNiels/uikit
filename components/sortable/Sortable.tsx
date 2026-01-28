@@ -106,8 +106,12 @@ export default function Sortable<T>(
 	const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
 
 	const sensors = useSensors(
-		useSensor(MouseSensor),
-		useSensor(TouchSensor),
+		useSensor(MouseSensor, {
+			activationConstraint: disabled ? { distance: Number.MAX_SAFE_INTEGER } : undefined,
+		}),
+		useSensor(TouchSensor, {
+			activationConstraint: disabled ? { distance: Number.MAX_SAFE_INTEGER } : undefined,
+		}),
 		useSensor(KeyboardSensor, {
 			coordinateGetter: sortableKeyboardCoordinates,
 		})
@@ -255,14 +259,6 @@ export default function Sortable<T>(
 			disabled,
 		]
 	);
-
-	if (disabled) {
-		return (
-			<SortableRootContext.Provider value={contextValue as SortableRootContextValue<unknown>}>
-				{sortableProps.children}
-			</SortableRootContext.Provider>
-		);
-	}
 
 	return (
 		<SortableRootContext.Provider value={contextValue as SortableRootContextValue<unknown>}>

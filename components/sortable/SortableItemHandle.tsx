@@ -38,7 +38,7 @@ export default function SortableItemHandle<T extends ElementType = "button">(
 		...(isDisabled ? {} : itemContext.listeners),
 		ref: composedRef,
 		className: cn(
-			"select-none disabled:pointer-events-none disabled:opacity-50",
+			"select-none disabled:pointer-events-none",
 			context.flatCursor ? "cursor-default" : "cursor-grab data-dragging:cursor-grabbing",
 			className
 		),
