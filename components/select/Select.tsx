@@ -25,7 +25,7 @@ export default function Select({
 	const autoItems = useMemo(() => {
 		if (items) {
 			return items;
-		};
+		}
 
 		const itemsArray: Array<{ value: unknown; label: ReactNode }> = [];
 		extractItemsFromChildren(children, itemsArray);

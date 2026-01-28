@@ -2,7 +2,6 @@
 
 import React, { type HTMLAttributes } from "react";
 
-
 import GlassDisplacementMap from "./GlassDisplacementMap";
 
 export default function GlassFilter({
