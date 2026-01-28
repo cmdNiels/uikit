@@ -120,7 +120,7 @@ export default function Glass({
 						borderBottomRightRadius: radius.bottomRight,
 						borderTopLeftRadius: radius.topLeft,
 						borderTopRightRadius: radius.topRight,
-						boxShadow: `inset 0 0 8px 0px color-mix(in oklch, oklch(1 0 0) 50%, transparent)`,
+						boxShadow: `inset 0 0 8px 0px oklch(1 0 0 / 0.3)`,
 						backdropFilter: `blur(2px) brightness(1.1) saturate(1.5)`,
 						WebkitBackdropFilter: `blur(2px) brightness(1.1) saturate(1.5)`,
 						willChange: "backdrop-filter, border-radius",
