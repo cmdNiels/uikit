@@ -11,10 +11,12 @@ export default function Glass({
 	className,
 	depth = 10,
 	zIndex = 0,
+	refraction = false,
 	...props
 }: HTMLAttributes<HTMLDivElement> & {
 	depth?: number;
 	zIndex?: number;
+	refraction?: boolean;
 }) {
 	const refractionFilterId = useId();
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -60,7 +62,7 @@ export default function Glass({
 		}
 
 		return () => resizeObserver.disconnect();
-	}, []);
+	}, [refraction]);
 
 	const { width, height } = dimensions;
 
@@ -71,38 +73,42 @@ export default function Glass({
 
 	return (
 		<>
-			<GlassFilter
-				id={refractionFilterId}
-				depth={depth}
-				height={height}
-				width={width}
-				radius={radius}
-				strength={strength}
-				chromaticAberration={chromaticAberration}
-			/>
+			{refraction && (
+				<GlassFilter
+					id={refractionFilterId}
+					depth={depth}
+					height={height}
+					width={width}
+					radius={radius}
+					strength={strength}
+					chromaticAberration={chromaticAberration}
+				/>
+			)}
 			<div
 				{...props}
 				ref={containerRef}
 				className={cn("relative isolate overflow-hidden bg-card/10 shadow-xl", className)}
 				style={{ zIndex }}
 			>
-				<div
-					style={{
-						content: "",
-						position: "absolute",
-						inset: 0,
-						zIndex: zIndex - 1,
-						opacity: 1,
-						borderBottomLeftRadius: radius.bottomLeft,
-						borderBottomRightRadius: radius.bottomRight,
-						borderTopLeftRadius: radius.topLeft,
-						borderTopRightRadius: radius.topRight,
-						backdropFilter: `url(#${refractionFilterId})`,
-						WebkitBackdropFilter: `url(#${refractionFilterId})`,
-						willChange: "backdrop-filter, border-radius",
-						pointerEvents: "none",
-					}}
-				/>
+				{refraction && (
+					<div
+						style={{
+							content: "",
+							position: "absolute",
+							inset: 0,
+							zIndex: zIndex - 1,
+							opacity: 1,
+							borderBottomLeftRadius: radius.bottomLeft,
+							borderBottomRightRadius: radius.bottomRight,
+							borderTopLeftRadius: radius.topLeft,
+							borderTopRightRadius: radius.topRight,
+							backdropFilter: `url(#${refractionFilterId})`,
+							WebkitBackdropFilter: `url(#${refractionFilterId})`,
+							willChange: "backdrop-filter, border-radius",
+							pointerEvents: "none",
+						}}
+					/>
+				)}
 				<div
 					style={{
 						content: "",
@@ -122,7 +128,7 @@ export default function Glass({
 					}}
 				/>
 				{/* Content */}
-				<div style={{ position: "relative", zIndex }}>{children}</div>
+				{children}
 			</div>
 		</>
 	);
