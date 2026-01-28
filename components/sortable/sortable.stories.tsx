@@ -1,7 +1,7 @@
 "use client";
 
 import { IconGripVertical } from "@tabler/icons-react";
-import { useState } from "react";
+import { useState, type ComponentProps } from "react";
 
 import Sortable from "./Sortable";
 import SortableContent from "./SortableContent";
@@ -9,15 +9,23 @@ import SortableItem from "./SortableItem";
 import SortableItemHandle from "./SortableItemHandle";
 import SortableOverlay from "./SortableOverlay";
 
+import type { Story } from "@ladle/react";
+
 export default {
 	title: "UI/Sortable",
 };
 
-function VerticalExample() {
+export const Vertical: Story<Partial<ComponentProps<typeof Sortable>>> = ({ orientation, flatCursor, disabled }) => {
 	const [items, setItems] = useState(["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]);
 
 	return (
-		<Sortable value={items} onValueChange={setItems} orientation="vertical">
+		<Sortable
+			value={items}
+			onValueChange={setItems}
+			orientation={orientation}
+			flatCursor={flatCursor}
+			disabled={disabled}
+		>
 			<SortableContent className="flex flex-col gap-2">
 				{items.map((item) => (
 					<SortableItem
@@ -41,15 +49,41 @@ function VerticalExample() {
 			</SortableOverlay>
 		</Sortable>
 	);
-}
+};
 
-export const Vertical = () => <VerticalExample />;
+Vertical.args = {
+	orientation: "vertical",
+	flatCursor: false,
+	disabled: false,
+};
 
-function HorizontalExample() {
+Vertical.argTypes = {
+	orientation: {
+		control: { type: "select" },
+		options: ["vertical", "horizontal", "mixed"],
+		defaultValue: "vertical",
+	},
+	flatCursor: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+};
+
+export const Horizontal: Story<Partial<ComponentProps<typeof Sortable>>> = ({ orientation, flatCursor, disabled }) => {
 	const [items, setItems] = useState(["A", "B", "C", "D", "E"]);
 
 	return (
-		<Sortable value={items} onValueChange={setItems} orientation="horizontal">
+		<Sortable
+			value={items}
+			onValueChange={setItems}
+			orientation={orientation}
+			flatCursor={flatCursor}
+			disabled={disabled}
+		>
 			<SortableContent className="flex gap-2">
 				{items.map((item) => (
 					<SortableItem
@@ -71,16 +105,36 @@ function HorizontalExample() {
 			</SortableOverlay>
 		</Sortable>
 	);
-}
+};
 
-export const Horizontal = () => <HorizontalExample />;
+Horizontal.args = {
+	orientation: "horizontal",
+	flatCursor: false,
+	disabled: false,
+};
+
+Horizontal.argTypes = {
+	orientation: {
+		control: { type: "select" },
+		options: ["vertical", "horizontal", "mixed"],
+		defaultValue: "horizontal",
+	},
+	flatCursor: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+};
 
 interface Task {
 	id: string;
 	name: string;
 }
 
-function WithHandleExample() {
+export const WithHandle: Story<Partial<ComponentProps<typeof Sortable>>> = ({ orientation, flatCursor, disabled }) => {
 	const [items, setItems] = useState<Task[]>([
 		{ id: "1", name: "Task 1" },
 		{ id: "2", name: "Task 2" },
@@ -88,7 +142,14 @@ function WithHandleExample() {
 	]);
 
 	return (
-		<Sortable value={items} onValueChange={setItems} getItemValue={(item) => item.id} orientation="vertical">
+		<Sortable
+			value={items}
+			onValueChange={setItems}
+			getItemValue={(item) => item.id}
+			orientation={orientation}
+			flatCursor={flatCursor}
+			disabled={disabled}
+		>
 			<SortableContent className="flex flex-col gap-2">
 				{items.map((item) => (
 					<SortableItem
@@ -116,6 +177,26 @@ function WithHandleExample() {
 			</SortableOverlay>
 		</Sortable>
 	);
-}
+};
 
-export const WithHandle = () => <WithHandleExample />;
+WithHandle.args = {
+	orientation: "vertical",
+	flatCursor: false,
+	disabled: false,
+};
+
+WithHandle.argTypes = {
+	orientation: {
+		control: { type: "select" },
+		options: ["vertical", "horizontal", "mixed"],
+		defaultValue: "vertical",
+	},
+	flatCursor: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+	disabled: {
+		control: { type: "boolean" },
+		defaultValue: false,
+	},
+};

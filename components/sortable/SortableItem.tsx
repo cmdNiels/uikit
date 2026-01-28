@@ -56,13 +56,14 @@ export default function SortableItem<T extends ElementType = "div">(
 
 	const context = useSortableContext();
 	const id = useId();
+	const isDisabled = disabled ?? context.disabled;
 	const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition, isDragging } = useSortable({
 		id: value,
-		disabled,
+		disabled: isDisabled,
 	});
 
 	const composedRef = useComposedRefs(ref, (node: HTMLElement | null) => {
-		if (disabled) {
+		if (isDisabled) {
 			return;
 		}
 		setNodeRef(node);
@@ -87,30 +88,29 @@ export default function SortableItem<T extends ElementType = "div">(
 			listeners,
 			setActivatorNodeRef,
 			isDragging,
-			disabled,
+			disabled: isDisabled,
 		}),
-		[id, attributes, listeners, setActivatorNodeRef, isDragging, disabled]
+		[id, attributes, listeners, setActivatorNodeRef, isDragging, isDisabled]
 	);
 
 	const mergedProps = {
 		id,
-		"data-disabled": disabled,
+		"data-disabled": isDisabled,
 		"data-dragging": isDragging ? "" : undefined,
 		"data-slot": "sortable-item",
 		...itemProps,
-		...(asHandle && !disabled ? attributes : {}),
-		...(asHandle && !disabled ? listeners : {}),
+		...(asHandle && !isDisabled ? attributes : {}),
+		...(asHandle && !isDisabled ? listeners : {}),
 		ref: composedRef,
 		style: composedStyle,
 		className: cn(
 			"focus-visible:ring-1 focus-visible:ring-neutral-950 focus-visible:ring-offset-1 focus-visible:outline-hidden dark:focus-visible:ring-neutral-300",
 			{
-				"touch-none select-none": asHandle,
-				"cursor-default": context.flatCursor,
-				"data-dragging:cursor-grabbing": !context.flatCursor,
-				"cursor-grab": !isDragging && asHandle && !context.flatCursor,
+				"touch-none select-none": asHandle && !isDisabled,
+				"cursor-default": context.flatCursor || isDisabled,
+				"data-dragging:cursor-grabbing": !context.flatCursor && !isDisabled,
+				"cursor-grab": !isDragging && asHandle && !context.flatCursor && !isDisabled,
 				"opacity-50": isDragging,
-				"pointer-events-none opacity-50": disabled,
 			},
 			className
 		),

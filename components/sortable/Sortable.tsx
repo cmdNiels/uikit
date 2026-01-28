@@ -55,6 +55,7 @@ export interface SortableRootContextValue<T> {
 	setActiveId: (id: UniqueIdentifier | null) => void;
 	getItemValue: (item: T) => UniqueIdentifier;
 	flatCursor: boolean;
+	disabled: boolean;
 }
 
 export default function Sortable<T>(
@@ -80,6 +81,7 @@ export default function Sortable<T>(
 			strategy?: SortableContextProps["strategy"];
 			orientation?: "vertical" | "horizontal" | "mixed";
 			flatCursor?: boolean;
+			disabled?: boolean;
 		}
 ) {
 	const {
@@ -91,6 +93,7 @@ export default function Sortable<T>(
 		onMove,
 		orientation = "vertical",
 		flatCursor = false,
+		disabled = false,
 		getItemValue: getItemValueProp,
 		accessibility,
 		onDragStart: onDragStartProp,
@@ -237,9 +240,29 @@ export default function Sortable<T>(
 			setActiveId,
 			getItemValue,
 			flatCursor,
+			disabled,
 		}),
-		[id, items, modifiers, strategy, config.modifiers, config.strategy, activeId, getItemValue, flatCursor]
+		[
+			id,
+			items,
+			modifiers,
+			strategy,
+			config.modifiers,
+			config.strategy,
+			activeId,
+			getItemValue,
+			flatCursor,
+			disabled,
+		]
 	);
+
+	if (disabled) {
+		return (
+			<SortableRootContext.Provider value={contextValue as SortableRootContextValue<unknown>}>
+				{sortableProps.children}
+			</SortableRootContext.Provider>
+		);
+	}
 
 	return (
 		<SortableRootContext.Provider value={contextValue as SortableRootContextValue<unknown>}>

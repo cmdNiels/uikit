@@ -21,7 +21,7 @@ export default function SortableItemHandle<T extends ElementType = "button">(
 	const isDisabled = disabled ?? itemContext.disabled;
 
 	const composedRef = useComposedRefs(itemHandleProps.ref, (node: HTMLElement | null) => {
-		if (!isDisabled) {
+		if (isDisabled) {
 			return;
 		}
 		itemContext.setActivatorNodeRef(node);
