@@ -200,6 +200,10 @@ export { default as PopoverHeader } from "./components/popover/PopoverHeader";
 export { default as PopoverTitle } from "./components/popover/PopoverTitle";
 export { default as PopoverTrigger } from "./components/popover/PopoverTrigger";
 
+// Radio Group
+export { default as RadioGroup } from "./components/radio-group/RadioGroup";
+export { default as RadioGroupItem } from "./components/radio-group/RadioGroupItem";
+
 // Scroll Area
 export { default as ScrollArea } from "./components/scroll-area/ScrollArea";
 export { default as ScrollBar } from "./components/scroll-area/ScrollBar";
