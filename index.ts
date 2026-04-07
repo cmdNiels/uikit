@@ -82,6 +82,17 @@ export { default as ComboboxTrigger } from "./components/combobox/ComboboxTrigge
 export { default as ComboboxValue } from "./components/combobox/ComboboxValue";
 export { default as useComboboxAnchor } from "./components/combobox/useComboboxAnchor";
 
+// Command
+export { default as Command } from "./components/command/Command";
+export { default as CommandDialog } from "./components/command/CommandDialog";
+export { default as CommandEmpty } from "./components/command/CommandEmpty";
+export { default as CommandGroup } from "./components/command/CommandGroup";
+export { default as CommandInput } from "./components/command/CommandInput";
+export { default as CommandItem } from "./components/command/CommandItem";
+export { default as CommandList } from "./components/command/CommandList";
+export { default as CommandSeparator } from "./components/command/CommandSeparator";
+export { default as CommandShortcut } from "./components/command/CommandShortcut";
+
 // Context Menu
 export { default as ContextMenu } from "./components/context-menu/ContextMenu";
 export { default as ContextMenuCheckboxItem } from "./components/context-menu/ContextMenuCheckboxItem";
