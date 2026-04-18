@@ -296,6 +296,12 @@ export { default as TableHead } from "./components/table/TableHead";
 export { default as TableHeader } from "./components/table/TableHeader";
 export { default as TableRow } from "./components/table/TableRow";
 
+// Tabs
+export { default as Tabs } from "./components/tabs/Tabs";
+export { default as TabsContent } from "./components/tabs/TabsContent";
+export { default as TabsList } from "./components/tabs/TabsList";
+export { default as TabsTrigger } from "./components/tabs/TabsTrigger";
+
 // Textarea
 export { default as TextArea } from "./components/textarea/TextArea";
 
