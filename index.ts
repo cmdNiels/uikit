@@ -237,6 +237,9 @@ export { default as Separator } from "./components/separator/Separator";
 // Skeleton
 export { default as Skeleton } from "./components/skeleton/Skeleton";
 
+// Slider
+export { default as Slider } from "./components/slider/Slider";
+
 // Sheet
 export { default as Sheet } from "./components/sheet/Sheet";
 export { default as SheetContent } from "./components/sheet/SheetContent";
