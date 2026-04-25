@@ -181,43 +181,41 @@
 	}
 }
 
-@layer base {
-	html {
-		overflow-y: scroll;
-	}
+html {
+	overflow-y: scroll;
+}
 
-	/* Firefox ONLY — this kills webkit pseudo-elements in Chrome 121+ if applied globally */
-	@supports not selector(::-webkit-scrollbar) {
-		* {
-			scrollbar-width: auto;
-			scrollbar-color: rgba(128, 128, 128, 0.4) transparent;
-		}
+/* Firefox ONLY — this kills webkit pseudo-elements in Chrome 121+ if applied globally */
+@supports not selector(::-webkit-scrollbar) {
+	* {
+		scrollbar-width: auto;
+		scrollbar-color: rgba(128, 128, 128, 0.4) transparent;
 	}
+}
 
-	/* WebKit / Chromium — only runs where ::-webkit-scrollbar is supported */
-	::-webkit-scrollbar {
-		width: 8px;
-		height: 8px;
-	}
+/* WebKit / Chromium — only runs where ::-webkit-scrollbar is supported */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
 
-	::-webkit-scrollbar-track {
-		background: transparent;
-	}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
 
-	::-webkit-scrollbar-thumb {
-		background: rgba(128, 128, 128, 0.4);
-		border-radius: 4px;
-	}
+::-webkit-scrollbar-thumb {
+	background: rgba(128, 128, 128, 0.4);
+	border-radius: 4px;
+}
 
-	::-webkit-scrollbar-thumb:hover {
-		background: rgba(128, 128, 128, 0.6);
-	}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(128, 128, 128, 0.6);
+}
 
-	::-webkit-scrollbar-button {
-		display: none;
-	}
+::-webkit-scrollbar-button {
+	display: none;
+}
 
-	::-webkit-scrollbar-corner {
-		background: transparent;
-	}
+::-webkit-scrollbar-corner {
+	background: transparent;
 }
