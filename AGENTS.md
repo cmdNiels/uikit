@@ -60,7 +60,7 @@ bun install           # Install dependencies with Bun
 ### Error Handling & Security
 
 - Validate and sanitize all inputs
-- Implement proper authentication/authorization with Clerk
+- Implement proper authentication/authorization
 - No console logs in production code (`warn` level for violations)
 - No `eval`, `innerHTML`, or script injection patterns
 
@@ -76,6 +76,6 @@ bun install           # Install dependencies with Bun
 
 See `.github/copilot-instructions.md` for extended guidelines on:
 
-- Full-stack development practices with TypeScript, React, Convex, and Clerk
+- Full-stack development practices with TypeScript and React
 - Security, performance, and architectural patterns
 - Never check terminal output for errors unless user indicates a problem
