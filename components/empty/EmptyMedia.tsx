@@ -1,6 +1,6 @@
 import cn from "@/cn";
 
-import { emptyMediaVariants } from "./emptyMediaVariants";
+import emptyMediaVariants from "./emptyMediaVariants";
 
 import type { VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";

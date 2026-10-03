@@ -1,5 +1,5 @@
 /* Use this in development */
-@import "@/tailwind.css";
+@import "./tailwind.css";
 /* Use this in production */
 /* @import "@cmdniels/uikit/tailwind.css"; */
 /* @source "node_modules/@cmdniels/uikit/out*.js"; */

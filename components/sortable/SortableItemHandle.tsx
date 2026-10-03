@@ -1,5 +1,3 @@
-"use client";
-
 import { useComposedRefs } from "motion/react";
 import { type ComponentPropsWithRef, type ElementType, type ReactElement, cloneElement } from "react";
 

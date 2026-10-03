@@ -1,5 +1,3 @@
-"use client";
-
 import { type UniqueIdentifier, DragOverlay, defaultDropAnimationSideEffects, type DropAnimation } from "@dnd-kit/core";
 import { type ComponentProps, type ReactNode, useLayoutEffect, useState } from "react";
 import * as ReactDOM from "react-dom";

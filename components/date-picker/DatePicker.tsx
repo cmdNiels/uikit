@@ -1,5 +1,3 @@
-"use client";
-
 import { IconChevronDown } from "@tabler/icons-react";
 import { type ChangeEvent, type ComponentPropsWithoutRef, forwardRef, useState } from "react";
 

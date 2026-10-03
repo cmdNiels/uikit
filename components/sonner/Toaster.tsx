@@ -1,19 +1,22 @@
-/* eslint-disable better-tailwindcss/no-unregistered-classes */
-
 "use client";
 
 import { IconCircleCheck, IconInfoCircle, IconAlertTriangle, IconAlertOctagon, IconLoader } from "@tabler/icons-react";
-import { useTheme } from "next-themes";
+import { useEffect, useState, type CSSProperties } from "react";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
 
-import type { CSSProperties } from "react";
-
 export default function Toaster({ ...props }: ToasterProps) {
-	const { theme = "system" } = useTheme();
+	const [theme, setTheme] = useState<"light" | "dark" | undefined>(undefined);
+
+	useEffect(() => {
+		const root = document.documentElement;
+		const isDark = root.classList.contains("dark");
+		setTheme(isDark ? "dark" : "light");
+	}, []);
 
 	return (
 		<Sonner
-			theme={theme as ToasterProps["theme"]}
+			theme={theme}
+			// eslint-disable-next-line better-tailwindcss/no-unregistered-classes
 			className="toaster group"
 			icons={{
 				success: <IconCircleCheck className="size-4" />,

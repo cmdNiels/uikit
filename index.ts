@@ -30,6 +30,12 @@ export { default as AspectRatio } from "./components/aspect-ratio/AspectRatio";
 // Badge
 export { default as Badge } from "./components/badge/Badge";
 
+// Bubble
+export { default as Bubble } from "./components/bubble/Bubble";
+export { default as BubbleContent } from "./components/bubble/BubbleContent";
+export { default as BubbleGroup } from "./components/bubble/BubbleGroup";
+export { default as BubbleReactions } from "./components/bubble/BubbleReactions";
+
 // Button
 export { default as Button } from "./components/button/Button";
 
@@ -159,6 +165,9 @@ export { default as FieldTitle } from "./components/field/FieldTitle";
 // File Dropzone
 export { default as FileDropzone } from "./components/file-dropzone/FileDropzone";
 
+// Glass
+// export { default as Glass } from "./components/glass/Glass";
+
 // Input
 export { default as Input } from "./components/input/Input";
 
@@ -182,11 +191,23 @@ export { default as ItemMedia } from "./components/item/ItemMedia";
 export { default as ItemSeparator } from "./components/item/ItemSeparator";
 export { default as ItemTitle } from "./components/item/ItemTitle";
 
+// Kbd
+export { default as Kbd } from "./components/kbd/Kbd";
+export { default as KbdGroup } from "./components/kbd/KbdGroup";
+
 // Label
 export { default as Label } from "./components/label/Label";
 
 // Link Input
 export { default as LinkInput } from "./components/link-input/LinkInput";
+
+// Message
+export { default as Message } from "./components/message/Message";
+export { default as MessageAvatar } from "./components/message/MessageAvatar";
+export { default as MessageContent } from "./components/message/MessageContent";
+export { default as MessageFooter } from "./components/message/MessageFooter";
+export { default as MessageGroup } from "./components/message/MessageGroup";
+export { default as MessageHeader } from "./components/message/MessageHeader";
 
 // Popover
 export { default as Popover } from "./components/popover/Popover";
@@ -195,6 +216,15 @@ export { default as PopoverDescription } from "./components/popover/PopoverDescr
 export { default as PopoverHeader } from "./components/popover/PopoverHeader";
 export { default as PopoverTitle } from "./components/popover/PopoverTitle";
 export { default as PopoverTrigger } from "./components/popover/PopoverTrigger";
+
+// Pagination
+export { default as Pagination } from "./components/pagination/Pagination";
+export { default as PaginationContent } from "./components/pagination/PaginationContent";
+export { default as PaginationEllipsis } from "./components/pagination/PaginationEllipsis";
+export { default as PaginationItem } from "./components/pagination/PaginationItem";
+export { default as PaginationLink } from "./components/pagination/PaginationLink";
+export { default as PaginationNext } from "./components/pagination/PaginationNext";
+export { default as PaginationPrevious } from "./components/pagination/PaginationPrevious";
 
 // Radio Group
 export { default as RadioGroup } from "./components/radio-group/RadioGroup";
@@ -227,8 +257,10 @@ export { default as Slider } from "./components/slider/Slider";
 
 // Sheet
 export { default as Sheet } from "./components/sheet/Sheet";
+export { default as SheetClose } from "./components/sheet/SheetClose";
 export { default as SheetContent } from "./components/sheet/SheetContent";
 export { default as SheetDescription } from "./components/sheet/SheetDescription";
+export { default as SheetFooter } from "./components/sheet/SheetFooter";
 export { default as SheetHeader } from "./components/sheet/SheetHeader";
 export { default as SheetTitle } from "./components/sheet/SheetTitle";
 export { default as SheetTrigger } from "./components/sheet/SheetTrigger";
@@ -257,6 +289,7 @@ export { default as SidebarProvider } from "./components/sidebar/SidebarProvider
 export { default as SidebarRail } from "./components/sidebar/SidebarRail";
 export { default as SidebarSeparator } from "./components/sidebar/SidebarSeparator";
 export { default as SidebarTrigger } from "./components/sidebar/SidebarTrigger";
+export { default as useSidebar } from "./components/sidebar/useSidebar";
 
 // Sonner
 export { default as Toaster } from "./components/sonner/Toaster";
@@ -270,6 +303,9 @@ export { default as SortableOverlay } from "./components/sortable/SortableOverla
 
 // Spinner
 export { default as Spinner } from "./components/spinner/Spinner";
+
+// Status Indicator
+export { default as StatusIndicator } from "./components/status-indicator/StatusIndicator";
 
 // Switch
 export { default as Switch } from "./components/switch/Switch";

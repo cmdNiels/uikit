@@ -1,5 +1,3 @@
-"use client";
-
 import { IconGripVertical } from "@tabler/icons-react";
 import { useState, type ComponentProps } from "react";
 

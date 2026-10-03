@@ -2,18 +2,10 @@
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
 		"noEmit": false,
-		"outDir": "out",
-		"rootDir": ".",
 		"declaration": true,
-		"declarationMap": false,
-		"emitDeclarationOnly": false,
-		"module": "esnext",
-		"moduleResolution": "bundler",
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["./*"]
-		}
+		"declarationMap": true,
+		"sourceMap": true
 	},
-	"include": ["index.ts", "cn.ts", "components/**/*.ts", "components/**/*.tsx"],
+	"include": ["index.ts", "cn.ts", "lib/**/*.ts", "lib/**/*.tsx", "components/**/*.ts", "components/**/*.tsx"],
 	"exclude": ["node_modules", "dist", "out", ".ladle", "**/*.stories.tsx"]
 }

@@ -1,11 +1,11 @@
-import tsConfig from "@cmdniels/eslint-config/ts";
-import webConfig from "@cmdniels/eslint-config/web";
+import tsConfig from "@cmdniels/eslint-config/eslint/ts";
+import webConfig from "@cmdniels/eslint-config/eslint/web";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
 	tsConfig,
 	webConfig,
 	{
-		ignores: ["node_modules/**", ".next/**", "out/**", ".ladle/**/*.mjs"],
+		ignores: ["node_modules/**", "out/**", ".ladle/**/*.mjs"],
 	},
 ]);

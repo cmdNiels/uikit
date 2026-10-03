@@ -1,5 +1,3 @@
-"use client";
-
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
 
 export default function PopoverTrigger({ ...props }: PopoverPrimitive.Trigger.Props) {

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import AspectRatio from "./AspectRatio";
 
 import type { Story } from "@ladle/react";
@@ -15,7 +13,8 @@ export const Default: Story<
 	}
 > = ({ ratio, width }) => (
 	<AspectRatio ratio={ratio} className="overflow-hidden rounded-md" style={{ width }}>
-		<Image
+		{}
+		<img
 			src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
 			alt="Photo"
 			className="size-full object-cover"

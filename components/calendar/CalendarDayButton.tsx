@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef, useEffect, type ComponentProps } from "react";
 import { getDefaultClassNames, type DayButton } from "react-day-picker";
 

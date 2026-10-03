@@ -1,5 +1,3 @@
-"use client";
-
 import { ContextMenu as ContextMenuPrimitive } from "@base-ui/react/context-menu";
 
 export default function ContextMenuPortal({ ...props }: ContextMenuPrimitive.Portal.Props) {

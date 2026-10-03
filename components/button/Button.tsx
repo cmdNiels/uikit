@@ -3,7 +3,7 @@ import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import cn from "@/cn";
 import Spinner from "@/components/spinner/Spinner";
 
-import { buttonVariants } from "./buttonVariants";
+import buttonVariants from "./buttonVariants";
 
 import type { VariantProps } from "class-variance-authority";
 
@@ -20,7 +20,7 @@ export default function Button({
 		<ButtonPrimitive
 			data-slot="button"
 			className={cn(buttonVariants({ variant, size, className }), loading && "relative")}
-			disabled={loading || disabled}
+			disabled={disabled}
 			{...props}
 		>
 			{loading && <Spinner className="absolute inset-0 m-auto" />}

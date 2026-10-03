@@ -1,5 +1,3 @@
-"use client";
-
 import { IconCopy } from "@tabler/icons-react";
 import {
 	useState,

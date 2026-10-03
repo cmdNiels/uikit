@@ -1,5 +1,3 @@
-"use client";
-
 import { SortableContext, type SortableContextProps } from "@dnd-kit/sortable";
 import { type ComponentPropsWithRef, type ElementType, type ReactElement, type ReactNode, cloneElement } from "react";
 

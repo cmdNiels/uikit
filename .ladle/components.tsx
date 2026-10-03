@@ -1,9 +1,20 @@
-import { ThemeProvider } from "next-themes";
 import { useEffect } from "react";
+import { createTheme } from "ssr-themes";
+import { bindTheme } from "ssr-themes/react";
 
 import type { GlobalProvider } from "@ladle/react";
 
+// @ts-ignore - CSS imports don't have types.
 import "@/globals.css";
+
+const ssrTheme = createTheme({
+	themes: ["light", "dark"],
+	defaultTheme: "light",
+	enableSystem: false,
+	attribute: "class",
+});
+
+const { ThemeProvider } = bindTheme(ssrTheme);
 
 export const Provider: GlobalProvider = ({ children, globalState }) => {
 	const theme = globalState.theme === "dark" ? "dark" : "light";
@@ -24,7 +35,7 @@ export const Provider: GlobalProvider = ({ children, globalState }) => {
 	}, [theme]);
 
 	return (
-		<ThemeProvider attribute="class" defaultTheme={theme} forcedTheme={theme} enableSystem={false}>
+		<ThemeProvider forced={theme}>
 			<div className="relative min-h-screen bg-background p-8 text-foreground">{children}</div>
 		</ThemeProvider>
 	);

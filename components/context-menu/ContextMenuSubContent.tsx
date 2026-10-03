@@ -1,5 +1,3 @@
-"use client";
-
 import ContextMenuContent from "./ContextMenuContent";
 
 import type { ComponentProps } from "react";

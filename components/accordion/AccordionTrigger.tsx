@@ -1,5 +1,3 @@
-"use client";
-
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 

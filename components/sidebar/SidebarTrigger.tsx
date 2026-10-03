@@ -1,5 +1,3 @@
-"use client";
-
 import { IconLayoutSidebar } from "@tabler/icons-react";
 import { type ComponentProps } from "react";
 

@@ -1,5 +1,3 @@
-"use client";
-
 import { type UniqueIdentifier, type DraggableAttributes, type DraggableSyntheticListeners } from "@dnd-kit/core";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";

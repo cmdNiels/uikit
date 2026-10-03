@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const buttonVariants = cva(
+const buttonVariants = cva(
 	"group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-[3px] aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 	{
 		variants: {
@@ -13,7 +13,7 @@ export const buttonVariants = cva(
 				ghost: "bg-clip-padding hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground",
 				destructive:
 					"bg-destructive/10 bg-clip-padding text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-				link: "bg-clip-padding text-primary underline-offset-4 hover:underline",
+				link: "bg-clip-padding underline-offset-4 hover:text-foreground hover:underline aria-expanded:bg-muted aria-expanded:text-foreground",
 				none: "text-primary",
 			},
 			size: {
@@ -35,3 +35,5 @@ export const buttonVariants = cva(
 		},
 	}
 );
+
+export default buttonVariants;

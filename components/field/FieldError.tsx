@@ -1,5 +1,3 @@
-"use client";
-
 import { useMemo, type ComponentProps } from "react";
 
 import cn from "@/cn";

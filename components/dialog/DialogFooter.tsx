@@ -1,18 +1,15 @@
-"use client";
-
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
+import { type ComponentProps } from "react";
 
 import cn from "@/cn";
 import Button from "@/components/button/Button";
-
-import type * as React from "react";
 
 export default function DialogFooter({
 	className,
 	showCloseButton = false,
 	children,
 	...props
-}: React.ComponentProps<"div"> & {
+}: ComponentProps<"div"> & {
 	showCloseButton?: boolean;
 }) {
 	return (

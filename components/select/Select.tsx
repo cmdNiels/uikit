@@ -1,5 +1,3 @@
-"use client";
-
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { useMemo, Children, isValidElement, type ReactNode } from "react";
 

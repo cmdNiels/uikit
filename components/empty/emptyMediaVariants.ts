@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const emptyMediaVariants = cva(
+const emptyMediaVariants = cva(
 	"mb-2 flex shrink-0 items-center justify-center [&_svg]:pointer-events-none [&_svg]:shrink-0",
 	{
 		variants: {
@@ -14,3 +14,5 @@ export const emptyMediaVariants = cva(
 		},
 	}
 );
+
+export default emptyMediaVariants;

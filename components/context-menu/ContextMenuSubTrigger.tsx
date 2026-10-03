@@ -1,5 +1,3 @@
-"use client";
-
 import { ContextMenu as ContextMenuPrimitive } from "@base-ui/react/context-menu";
 import { IconChevronRight } from "@tabler/icons-react";
 

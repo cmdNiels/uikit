@@ -1,27 +1,18 @@
-"use client";
-
 import { IconAlertCircle } from "@tabler/icons-react";
-import { useRouter } from "next/navigation";
 import { type HTMLAttributes } from "react";
 
 import cn from "@/cn";
 import Alert from "@/components/alert/Alert";
 import AlertDescription from "@/components/alert/AlertDescription";
 import AlertTitle from "@/components/alert/AlertTitle";
-import Button from "@/components/button/Button";
 
 export default function Error({
 	title,
 	message,
 	className,
+	children,
 	...props
 }: HTMLAttributes<HTMLDivElement> & { title: string; message: string }) {
-	const router = useRouter();
-
-	const handleClick = () => {
-		router.replace("/");
-	};
-
 	return (
 		<div
 			className={cn("flex size-full shrink-0 grow flex-col items-center justify-center px-4", className)}
@@ -33,9 +24,7 @@ export default function Error({
 					<AlertTitle>{title}</AlertTitle>
 					<AlertDescription>{message}</AlertDescription>
 				</Alert>
-				<Button variant="default" onClick={handleClick}>
-					Go to Home
-				</Button>
+				{children}
 			</div>
 		</div>
 	);

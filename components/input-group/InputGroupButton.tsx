@@ -1,5 +1,3 @@
-"use client";
-
 import cn from "@/cn";
 import Button from "@/components/button/Button";
 

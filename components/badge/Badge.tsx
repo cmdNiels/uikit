@@ -3,7 +3,7 @@ import { useRender } from "@base-ui/react/use-render";
 
 import cn from "@/cn";
 
-import { badgeVariants } from "./badgeVariants";
+import badgeVariants from "./badgeVariants";
 
 import type { VariantProps } from "class-variance-authority";
 

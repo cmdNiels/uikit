@@ -1,5 +1,3 @@
-"use client";
-
 import { Combobox as ComboboxPrimitive } from "@base-ui/react";
 import { IconChevronDown } from "@tabler/icons-react";
 

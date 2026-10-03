@@ -1,5 +1,4 @@
 /* eslint-disable better-tailwindcss/no-unregistered-classes */
-"use client";
 
 import { IconChevronLeft, IconChevronRight, IconChevronDown } from "@tabler/icons-react";
 import { type ComponentProps } from "react";
@@ -7,7 +6,7 @@ import { DayPicker, getDefaultClassNames } from "react-day-picker";
 
 import cn from "@/cn";
 import type Button from "@/components/button/Button";
-import { buttonVariants } from "@/components/button/buttonVariants";
+import buttonVariants from "@/components/button/buttonVariants";
 
 import CalendarDayButton from "./CalendarDayButton";
 

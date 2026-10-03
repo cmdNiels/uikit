@@ -1,6 +1,6 @@
 import cn from "@/cn";
 
-import { alertVariants } from "./alertVariants";
+import alertVariants from "./alertVariants";
 
 import type { VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";

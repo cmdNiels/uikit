@@ -8,11 +8,13 @@ export default function FileDropzone({
 	onFileUpload,
 	accept = "*/*",
 	maxSize = "10MB",
+	className,
 }: {
 	fileInputRef: RefObject<HTMLInputElement | null>;
 	onFileUpload(file: File): void;
 	accept?: string;
 	maxSize?: string;
+	className?: string;
 }) {
 	const [isDragActive, setIsDragActive] = useState(false);
 
@@ -57,8 +59,9 @@ export default function FileDropzone({
 	return (
 		<div
 			className={cn(
-				"flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-neutral-300 p-8 text-center transition-colors dark:border-neutral-700",
-				isDragActive ? "border bg-neutral-100 dark:bg-neutral-900" : "border-dashed"
+				"flex cursor-pointer flex-col items-center justify-center rounded-lg border-border p-8 text-center transition-colors",
+				isDragActive ? "border bg-card" : "border-dashed",
+				className
 			)}
 			onClick={handleBoxClick}
 			onDragEnter={handleDragEnter}
@@ -68,16 +71,13 @@ export default function FileDropzone({
 		>
 			<div className="mb-2">
 				<IconUpload
-					className={cn(
-						"size-8 ",
-						isDragActive ? "text-neutral-700 dark:text-neutral-300" : "text-neutral-500"
-					)}
+					className={cn("size-8 ", isDragActive ? "text-card-foreground" : "text-muted-foreground")}
 				/>
 			</div>
-			<p className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+			<p className="text-sm font-medium text-card-foreground">
 				{isDragActive ? "Drop file here" : "Choose a file or drag and drop"}
 			</p>
-			<p className="mt-1 text-xs text-neutral-500">({maxSize} max)</p>
+			<p className="mt-1 text-xs text-muted-foreground">({maxSize} max)</p>
 			<input
 				type="file"
 				ref={fileInputRef}
