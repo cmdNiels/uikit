@@ -1,6 +1,4 @@
-"use client";
-
-import * as React from "react";
+import { type ComponentProps, type ReactNode } from "react";
 
 import cn from "@/cn";
 import Dialog from "@/components/dialog/Dialog";
@@ -14,14 +12,12 @@ export default function CommandDialog({
 	description = "Search for a command to run...",
 	children,
 	className,
-	showCloseButton = false,
 	...props
-}: Omit<React.ComponentProps<typeof Dialog>, "children"> & {
+}: Omit<ComponentProps<typeof Dialog>, "children"> & {
 	title?: string;
 	description?: string;
 	className?: string;
-	showCloseButton?: boolean;
-	children: React.ReactNode;
+	children: ReactNode;
 }) {
 	return (
 		<Dialog {...props}>
@@ -31,7 +27,7 @@ export default function CommandDialog({
 			</DialogHeader>
 			<DialogContent
 				className={cn("top-1/3 translate-y-0 overflow-hidden rounded-xl! p-0", className)}
-				showCloseButton={showCloseButton}
+				showCloseButton={false}
 				unstyled
 			>
 				{children}

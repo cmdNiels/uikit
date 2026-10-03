@@ -1,23 +1,20 @@
-"use client";
-
 import { IconSearch } from "@tabler/icons-react";
-import { Command as CommandPrimitive } from "cmdk";
-import * as React from "react";
+import { type ComponentProps } from "react";
 
 import cn from "@/cn";
+import type Input from "@/components/input/Input";
 import InputGroup from "@/components/input-group/InputGroup";
 import InputGroupAddon from "@/components/input-group/InputGroupAddon";
+import InputGroupInput from "@/components/input-group/InputGroupInput";
 
-export default function CommandInput({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.Input>) {
+export default function CommandInput({ className, ...props }: ComponentProps<typeof Input>) {
 	return (
-		<div data-slot="command-input-wrapper" className="p-1 pb-0">
-			<InputGroup className="h-8! rounded-lg! border-border bg-card shadow-none! *:data-[slot=input-group-addon]:pl-2!">
-				<CommandPrimitive.Input
+		<div className="absolute inset-x-0 top-0 z-10 p-2">
+			<InputGroup className="h-8! bg-card shadow-sm">
+				<InputGroupInput
 					data-slot="command-input"
-					className={cn(
-						"w-full text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
-						className
-					)}
+					className={cn("w-full text-sm outline-hidden disabled:opacity-50", className)}
+					autoComplete="off"
 					{...props}
 				/>
 				<InputGroupAddon>

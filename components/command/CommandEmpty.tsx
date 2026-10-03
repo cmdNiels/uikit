@@ -1,16 +1,15 @@
-"use client";
-
-import { Command as CommandPrimitive } from "cmdk";
-import * as React from "react";
+import { type ComponentProps } from "react";
 
 import cn from "@/cn";
 
-export default function CommandEmpty({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.Empty>) {
+export default function CommandEmpty({ className, children, ...props }: ComponentProps<"div">) {
 	return (
-		<CommandPrimitive.Empty
+		<div
 			data-slot="command-empty"
-			className={cn("py-6 text-center text-sm", className)}
+			className={cn("flex h-16 items-center justify-center px-3 py-2.5 text-center text-sm", className)}
 			{...props}
-		/>
+		>
+			<span className="text-card-foreground">{children}</span>
+		</div>
 	);
 }

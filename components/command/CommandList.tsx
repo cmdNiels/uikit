@@ -1,16 +1,14 @@
-"use client";
-
-import { Command as CommandPrimitive } from "cmdk";
-import * as React from "react";
+import { type ComponentProps } from "react";
 
 import cn from "@/cn";
+import ItemGroup from "@/components/item/ItemGroup";
 
-export default function CommandList({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.List>) {
+export default function CommandList({ className, ...props }: ComponentProps<typeof ItemGroup>) {
 	return (
-		<CommandPrimitive.List
+		<ItemGroup
 			data-slot="command-list"
 			className={cn(
-				"scrollbar-none max-h-72 scroll-py-1 overflow-x-hidden overflow-y-auto outline-none",
+				"scrollbar-none max-h-72 scroll-py-1 scroll-pt-10 gap-1 overflow-x-hidden overflow-y-auto rounded-md pt-10 outline-none",
 				className
 			)}
 			{...props}
