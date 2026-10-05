@@ -4,7 +4,8 @@
 		"noEmit": false,
 		"declaration": true,
 		"declarationMap": true,
-		"sourceMap": true
+		"sourceMap": true,
+		"inlineSources": true
 	},
 	"include": ["index.ts", "cn.ts", "lib/**/*.ts", "lib/**/*.tsx", "components/**/*.ts", "components/**/*.tsx"],
 	"exclude": ["node_modules", "dist", "out", ".ladle", "**/*.stories.tsx"]
