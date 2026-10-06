@@ -8,6 +8,7 @@ import type { ComponentProps } from "react";
 export default function InputGroupAddon({
 	className,
 	align = "inline-start",
+	tabIndex = -1,
 	...props
 }: ComponentProps<"div"> & VariantProps<typeof inputGroupAddonVariants>) {
 	return (
@@ -15,6 +16,7 @@ export default function InputGroupAddon({
 			role="group"
 			data-slot="input-group-addon"
 			data-align={align}
+			tabIndex={tabIndex}
 			className={cn(inputGroupAddonVariants({ align }), className)}
 			onClick={(e) => {
 				if ((e.target as HTMLElement).closest("button")) {
