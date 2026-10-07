@@ -21,6 +21,7 @@
 	--color-primary: var(--primary);
 	--color-card-foreground: var(--card-foreground);
 	--color-card: var(--card);
+	--radius-xs: calc(var(--radius) * var(--corner-shape-scale) - 6px);
 	--radius-sm: calc(var(--radius) * var(--corner-shape-scale) - 4px);
 	--radius-md: calc(var(--radius) * var(--corner-shape-scale) - 2px);
 	--radius-lg: calc(var(--radius) * var(--corner-shape-scale));
@@ -53,6 +54,10 @@
 	::before,
 	::after {
 		corner-shape: superellipse(1.5);
+	}
+
+	.rounded-none {
+		corner-shape: square;
 	}
 
 	.rounded-full {
