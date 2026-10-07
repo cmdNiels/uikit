@@ -27,9 +27,9 @@ export const Default: Story<
 	}
 > = ({ size, title, description, triggerText, cancelText, actionText }) => (
 	<AlertDialog>
-		<AlertDialogTrigger>
+		<AlertDialogTrigger render={
 			<Button variant="outline">{triggerText}</Button>
-		</AlertDialogTrigger>
+		} />
 		<AlertDialogContent size={size}>
 			<AlertDialogHeader>
 				<AlertDialogTitle>{title}</AlertDialogTitle>
@@ -37,10 +37,10 @@ export const Default: Story<
 			</AlertDialogHeader>
 			<AlertDialogFooter>
 				<AlertDialogCancel>
-					<Button variant="outline">{cancelText}</Button>
+					{cancelText}
 				</AlertDialogCancel>
 				<AlertDialogAction>
-					<Button variant="destructive">{actionText}</Button>
+					{actionText}
 				</AlertDialogAction>
 			</AlertDialogFooter>
 		</AlertDialogContent>
