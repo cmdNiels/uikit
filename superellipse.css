@@ -1,0 +1,1194 @@
+/* Superellipse Corners
+ * ---------------------------------------------------------------------------
+ * Scope   Every rounded-* utility — rounded, rounded-{pos}, rounded-{size},
+ *         rounded-{pos}-{size} — applies corner-shape: superellipse(1.5) to
+ *         the exact box that receives its border-radius. Excluded are
+ *         rounded-none and bare rounded-full; positional rounded-*-full
+ *         (e.g. rounded-t-full) is not rounded-full and does receive shape.
+ *
+ * Reach   All variant chains (hover:, in-data-[:], *:, **:, before:, after:,
+ *         !, …) and every supported pseudo-element (range thumb/track, select
+ *         picker/checkmark, file button, search cancel/decoration).
+ *
+ * Rules   Shape and scaling are always applied together: an element has
+ *         either BOTH or NEITHER — never shape-without-scaling, never
+ *         scaling-without-shape. --superellipse-modifier is the themeable
+ *         knob that drives --superellipse-scale.
+ *
+ * Goal    Cover as many corners as possible while upholding the above.
+ * ------------------------------------------------------------------------ */
+
+@theme {
+	--radius: initial;
+}
+
+@theme inline {
+	--superellipse-modifier: 1.4;
+	--superellipse-scale: 1;
+
+	--radius-xs: calc(var(--radius) * var(--superellipse-scale) - 6px);
+	--radius-sm: calc(var(--radius) * var(--superellipse-scale) - 4px);
+	--radius-md: calc(var(--radius) * var(--superellipse-scale) - 2px);
+	--radius-lg: calc(var(--radius) * var(--superellipse-scale));
+	--radius-xl: calc(var(--radius) * var(--superellipse-scale) + 4px);
+	--radius-2xl: calc(var(--radius) * var(--superellipse-scale) + 8px);
+	--radius-3xl: calc(var(--radius) * var(--superellipse-scale) + 12px);
+	--radius-4xl: calc(var(--radius) * var(--superellipse-scale) + 16px);
+}
+
+@utility rounded {
+	border-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t {
+	border-top-left-radius: calc(0.25rem * var(--superellipse-scale));
+	border-top-right-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r {
+	border-top-right-radius: calc(0.25rem * var(--superellipse-scale));
+	border-bottom-right-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b {
+	border-bottom-right-radius: calc(0.25rem * var(--superellipse-scale));
+	border-bottom-left-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l {
+	border-top-left-radius: calc(0.25rem * var(--superellipse-scale));
+	border-bottom-left-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s {
+	border-start-start-radius: calc(0.25rem * var(--superellipse-scale));
+	border-end-start-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e {
+	border-start-end-radius: calc(0.25rem * var(--superellipse-scale));
+	border-end-end-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl {
+	border-top-left-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr {
+	border-top-right-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br {
+	border-bottom-right-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl {
+	border-bottom-left-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss {
+	border-start-start-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se {
+	border-start-end-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es {
+	border-end-start-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee {
+	border-end-end-radius: calc(0.25rem * var(--superellipse-scale));
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t-full {
+	border-top-left-radius: calc(infinity* 1px);
+	border-top-right-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r-full {
+	border-top-right-radius: calc(infinity* 1px);
+	border-bottom-right-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b-full {
+	border-bottom-right-radius: calc(infinity* 1px);
+	border-bottom-left-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l-full {
+	border-top-left-radius: calc(infinity* 1px);
+	border-bottom-left-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s-full {
+	border-start-start-radius: calc(infinity* 1px);
+	border-end-start-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e-full {
+	border-start-end-radius: calc(infinity* 1px);
+	border-end-end-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl-full {
+	border-top-left-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr-full {
+	border-top-right-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br-full {
+	border-bottom-right-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl-full {
+	border-bottom-left-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss-full {
+	border-start-start-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se-full {
+	border-start-end-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es-full {
+	border-end-start-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee-full {
+	border-end-end-radius: calc(infinity* 1px);
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-t-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-r-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-b-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-l-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-s-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-e-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tl-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-tr-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-br-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-bl-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ss-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-se-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-es-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee-xs {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee-sm {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee-md {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee-lg {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee-xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee-2xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee-3xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@utility rounded-ee-4xl {
+	@supports (corner-shape: superellipse(1.5)) {
+		--superellipse-scale: var(--superellipse-modifier);
+		corner-shape: superellipse(1.5);
+	}
+}
+
+@layer base {
+	@supports (corner-shape: superellipse(1.5)) {
+		/* range — WebKit */
+		@supports selector(input[type="range"]::-webkit-slider-thumb) {
+			input[type="range"][class*="rounded"]:not([class*="rounded-none"]):not([class*="rounded-full"]) {
+				&::-webkit-slider-thumb,
+				&::-webkit-slider-runnable-track {
+					border-radius: inherit;
+					--superellipse-scale: var(--superellipse-modifier);
+					corner-shape: superellipse(1.5);
+				}
+			}
+		}
+
+		/* range — Firefox */
+		@supports selector(input[type="range"]::-moz-range-thumb) {
+			input[type="range"][class*="rounded"]:not([class*="rounded-none"]):not([class*="rounded-full"]) {
+				&::-moz-range-thumb,
+				&::-moz-range-track,
+				&::-moz-range-progress {
+					border-radius: inherit;
+					--superellipse-scale: var(--superellipse-modifier);
+					corner-shape: superellipse(1.5);
+				}
+			}
+		}
+
+		/* select — experimental picker */
+		@supports selector(select::picker(select)) {
+			select[class*="rounded"]:not([class*="rounded-none"]):not([class*="rounded-full"]) {
+				&::picker(select),
+				&::checkmark {
+					border-radius: inherit;
+					--superellipse-scale: var(--superellipse-modifier);
+					corner-shape: superellipse(1.5);
+				}
+			}
+		}
+
+		/* file input button */
+		@supports selector(input[type="file"]::file-selector-button) {
+			input[type="file"][class*="rounded"]:not([class*="rounded-none"]):not([class*="rounded-full"]) {
+				&::file-selector-button {
+					border-radius: inherit;
+					--superellipse-scale: var(--superellipse-modifier);
+					corner-shape: superellipse(1.5);
+				}
+			}
+		}
+
+		/* search — WebKit (split rules: an unsupported selector in a list drops the whole rule) */
+		@supports selector(input[type="search"]::-webkit-search-cancel-button) {
+			input[type="search"][class*="rounded"]:not([class*="rounded-none"]):not([class*="rounded-full"]) {
+				&::-webkit-search-cancel-button {
+					border-radius: inherit;
+					--superellipse-scale: var(--superellipse-modifier);
+					corner-shape: superellipse(1.5);
+				}
+			}
+		}
+
+		@supports selector(input[type="search"]::-webkit-search-decoration) {
+			input[type="search"][class*="rounded"]:not([class*="rounded-none"]):not([class*="rounded-full"]) {
+				&::-webkit-search-decoration {
+					border-radius: inherit;
+					--superellipse-scale: var(--superellipse-modifier);
+					corner-shape: superellipse(1.5);
+				}
+			}
+		}
+	}
+}

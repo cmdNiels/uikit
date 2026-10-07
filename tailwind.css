@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./superellipse.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -21,14 +22,6 @@
 	--color-primary: var(--primary);
 	--color-card-foreground: var(--card-foreground);
 	--color-card: var(--card);
-	--radius-xs: calc(var(--radius) * var(--corner-shape-scale) - 6px);
-	--radius-sm: calc(var(--radius) * var(--corner-shape-scale) - 4px);
-	--radius-md: calc(var(--radius) * var(--corner-shape-scale) - 2px);
-	--radius-lg: calc(var(--radius) * var(--corner-shape-scale));
-	--radius-xl: calc(var(--radius) * var(--corner-shape-scale) + 4px);
-	--radius-2xl: calc(var(--radius) * var(--corner-shape-scale) + 8px);
-	--radius-3xl: calc(var(--radius) * var(--corner-shape-scale) + 12px);
-	--radius-4xl: calc(var(--radius) * var(--corner-shape-scale) + 16px);
 
 	@keyframes accordion-down {
 		from {
@@ -50,36 +43,12 @@
 }
 
 @layer base {
-	*,
-	::before,
-	::after {
-		corner-shape: superellipse(1.5);
-	}
-
-	.rounded-none {
-		corner-shape: square;
-	}
-
-	.rounded-full {
-		corner-shape: round;
-	}
-
 	* {
 		@apply border-border outline-ring/50;
 	}
 
 	body {
 		@apply bg-background text-foreground;
-	}
-}
-
-:root {
-	--corner-shape-scale: 1;
-}
-
-@supports (corner-shape: superellipse(1.5)) {
-	:root {
-		--corner-shape-scale: 1.4;
 	}
 }
 

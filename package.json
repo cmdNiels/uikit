@@ -14,6 +14,7 @@
 			"types": "./out/cn.d.ts",
 			"import": "./out/cn.js"
 		},
+		"./superellipse.css": "./superellipse.css",
 		"./tailwind.css": "./tailwind.css"
 	},
 	"main": "./out/index.js",
