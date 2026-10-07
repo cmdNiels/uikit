@@ -43,12 +43,12 @@
 }
 
 @layer base {
-	* {
-		@apply border-border outline-ring/50;
+	html {
+		@apply bg-background text-foreground overflow-y-scroll scrollbar-thumb-accent scrollbar-track-card;
 	}
 
-	body {
-		@apply bg-background text-foreground;
+	* {
+		@apply border-border outline-ring/50;
 	}
 }
 
@@ -111,106 +111,4 @@
 	&:where([data-orientation="vertical"]) {
 		@slot;
 	}
-}
-
-/* Scrollbar Classes */
-@theme {
-	--scrollbar-thumb-color: var(--color-border);
-	--scrollbar-track-color: var(--color-background);
-	--scrollbar-gutter-modifier: "";
-}
-
-@utility scrollbar-none {
-	scrollbar-width: none;
-	&::-webkit-scrollbar {
-		display: none;
-	}
-}
-
-@utility scrollbar {
-	scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
-	&::-webkit-scrollbar-thumb {
-		background-color: var(--scrollbar-thumb-color);
-	}
-	&::-webkit-scrollbar-track {
-		background-color: var(--scrollbar-track-color);
-	}
-}
-
-@utility scrollbar-stable {
-	scrollbar-gutter: stable var(--scrollbar-gutter-modifier);
-}
-
-@utility scrollbar-both-edges {
-	--scrollbar-gutter-modifier: both-edges;
-}
-
-@utility scrollbar-thumb-* {
-	--scrollbar-thumb-color: --value(--color-*);
-
-	scrollbar-arrow-color: var(--scrollbar-thumb-color);
-	&::-webkit-scrollbar-thumb {
-		background-color: var(--scrollbar-thumb-color);
-	}
-	&::-webkit-scrollbar-thumb:hover {
-		background-color: var(--scrollbar-thumb-color);
-	}
-	&::-webkit-scrollbar-thumb:active {
-		background-color: var(--scrollbar-thumb-color);
-	}
-}
-
-@utility scrollbar-track-* {
-	--scrollbar-track-color: --value(--color-*);
-
-	scrollbar-track-color: var(--scrollbar-track-color);
-	scrollbar-darkshadow-color: var(--scrollbar-track-color);
-	&::-webkit-scrollbar-track {
-		background-color: var(--scrollbar-track-color);
-	}
-	&::-webkit-scrollbar-track:hover {
-		background-color: var(--scrollbar-track-color);
-	}
-	&::-webkit-scrollbar-track:active {
-		background-color: var(--scrollbar-track-color);
-	}
-}
-
-html {
-	overflow-y: scroll;
-}
-
-/* Firefox ONLY — this kills webkit pseudo-elements in Chrome 121+ if applied globally */
-@supports not selector(::-webkit-scrollbar) {
-	* {
-		scrollbar-width: auto;
-		scrollbar-color: rgba(128, 128, 128, 0.4) transparent;
-	}
-}
-
-/* WebKit / Chromium — only runs where ::-webkit-scrollbar is supported */
-::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
-}
-
-::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-	background: rgba(128, 128, 128, 0.4);
-	border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: rgba(128, 128, 128, 0.6);
-}
-
-::-webkit-scrollbar-button {
-	display: none;
-}
-
-::-webkit-scrollbar-corner {
-	background: transparent;
 }
