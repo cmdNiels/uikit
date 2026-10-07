@@ -6,6 +6,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 /** @type {import('@ladle/react').UserConfig} */
 export default {
 	stories: "components/**/*.stories.{tsx,jsx}",
+	host: "localhost",
+	port: 3000,
 	viteConfig: path.resolve(__dirname, "../vite.config.mts"),
 	addons: {
 		theme: {

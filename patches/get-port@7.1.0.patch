@@ -1,0 +1,18 @@
+diff --git a/index.js b/index.js
+index 7691d6f3bc4870160e48c7a28eabb03ce59b4c40..3bcde68b18d5895776659dc5cdb8cdfb8d3e8aa9 100644
+--- a/index.js
++++ b/index.js
+@@ -26,9 +26,10 @@ let timeout;
+ const getLocalHosts = () => {
+ 	const interfaces = os.networkInterfaces();
+ 
+-	// Add undefined value for createServer function to use default host,
+-	// and default IPv4 host in case createServer defaults to IPv6.
+-	const results = new Set([undefined, '0.0.0.0']);
++	// Probe IPv4 hosts only. The unspecified host (undefined) makes Bun bind to
++	// the IPv6 wildcard `::`, which fails with a codeless error on machines
++	// where IPv6 is disabled.
++	const results = new Set(['0.0.0.0']);
+ 
+ 	for (const _interface of Object.values(interfaces)) {
+ 		for (const config of _interface) {
