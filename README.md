@@ -119,7 +119,7 @@ export default function MyComponent() {
 - **Feedback**: Alert, AlertDialog, Error, Skeleton, Spinner, Toaster (Sonner)
 - **Navigation**: ContextMenu, DropdownMenu
 - **Overlay**: Popover, Tooltip
-- **Utilities**: Badge, Sortable
+- **Utilities**: Badge
 - **Typography**: Complete set of typography components
 
 ## Development

@@ -32,7 +32,7 @@ export default function DialogContent({
 					className={cn(
 						"max-h-[calc(100%-2rem)]",
 						"grid w-full gap-6 overflow-y-auto rounded-xl bg-background text-sm",
-						"scrollbar-track-background scrollbar-thumb-border scrollbar",
+						"scrollbar scrollbar-thumb-border scrollbar-track-background",
 						!unstyled && "p-6"
 					)}
 				>
