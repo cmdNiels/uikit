@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./colors.css";
 @import "./data-variants.css";
 @import "./superellipse.css";
 

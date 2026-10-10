@@ -1,6 +1,6 @@
 {
 	"name": "@cmdniels/uikit",
-	"version": "2.1.1",
+	"version": "2.2.0",
 	"private": false,
 	"license": "MIT",
 	"sideEffects": false,
@@ -14,6 +14,7 @@
 			"types": "./out/cn.d.ts",
 			"import": "./out/cn.js"
 		},
+		"./colors.css": "./colors.css",
 		"./data-variants.css": "./data-variants.css",
 		"./superellipse.css": "./superellipse.css",
 		"./tailwind.css": "./tailwind.css"
@@ -22,9 +23,10 @@
 	"types": "./out/index.d.ts",
 	"files": [
 		"out",
-		"tailwind.css",
+		"colors.css",
 		"data-variants.css",
 		"superellipse.css",
+		"tailwind.css",
 		"README.md",
 		"LICENSE"
 	],
