@@ -11,6 +11,7 @@ export default function InputGroupButton({
 	type = "button",
 	variant = "ghost",
 	size = "xs",
+	tabIndex = -1,
 	...props
 }: Omit<ComponentProps<typeof Button>, "size" | "type"> &
 	VariantProps<typeof inputGroupButtonVariants> & {
@@ -20,6 +21,7 @@ export default function InputGroupButton({
 		<Button
 			type={type}
 			data-size={size}
+			tabIndex={tabIndex}
 			variant={variant}
 			className={cn(inputGroupButtonVariants({ size }), className)}
 			{...props}
